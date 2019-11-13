@@ -1,0 +1,17 @@
+<div class="card-deck">
+  <div class="row" *ngFor="let item of bookList">
+    <div class="col-md-12 ml-3">
+      <div class="card pt-3" style="width: 18rem;">
+        <img class="card-img-top " src="{{item.imagen}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.nombre}}</h5>
+          <p class="card-text">By: {{item.autor}}</p>
+          <a [routerLink]="[ '/book/',item.id ]" class="btn btn-outline-success">Book</a>
+
+          <a href="#" id="boton" class="btn btn-outline-primary" (click)="add(item.id)">{{item.paginas}} Pages</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
