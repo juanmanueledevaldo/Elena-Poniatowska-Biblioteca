@@ -1,4 +1,5 @@
 <<<<<<< develop
+<<<<<<< develop
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,6 +16,8 @@ export class UserComponent implements OnInit {
 
 }
 =======
+=======
+>>>>>>> usuario otra vez
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "src/app/Service/user.service";

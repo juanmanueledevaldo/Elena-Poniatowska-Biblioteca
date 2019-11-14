@@ -1,4 +1,5 @@
 <<<<<<< develop
+<<<<<<< develop
 import { Injectable } from '@angular/core';
 import { IBook } from 'src/app/Model/book';
 import { Observable } from 'rxjs/internal/Observable';
@@ -27,6 +28,8 @@ export class DetailService {
   }
 }
 =======
+=======
+>>>>>>> usuario otra vez
 //COMPONENT
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
