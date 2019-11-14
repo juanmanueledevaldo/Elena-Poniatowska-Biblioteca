@@ -34,10 +34,5 @@ export class BookService {
     let requestUrl = `${this._apiUrl}/${id}`;
     return this.http.get<IBook>(requestUrl).pipe();
   }
-  postDetail(book:IBook):Observable<IBook>{
-   
-    let urlApi = "http://localhost:59417/api/prestamo";
-    debugger;
-    return this.http.post<IBook>(urlApi, book).pipe()
-  }
+  
 }
