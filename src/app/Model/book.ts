@@ -1,5 +1,6 @@
 export interface IBook {
     Id:string;
+    Folio:string;
     Nombre:string;
     Autor:string;
     Genero:string;

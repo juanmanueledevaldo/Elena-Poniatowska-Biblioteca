@@ -3,15 +3,12 @@ import { Injectable } from '@angular/core';
 /////////////////////////////////////////////////////////////////
 //INTERFACE
 import { IBook } from '../Model/book';
-
 /////////////////////////////////////////////////////////////////
 //HTTP
+import { catchError, retry } from "rxjs/operators";
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
 /////////////////////////////////////////////////////////////////
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +31,4 @@ export class BookService {
     let requestUrl = `${this._apiUrl}/${id}`;
     return this.http.get<IBook>(requestUrl).pipe();
   }
-  
 }
