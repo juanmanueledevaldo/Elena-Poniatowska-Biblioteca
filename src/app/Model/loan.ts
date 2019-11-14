@@ -1,12 +1,3 @@
-<<<<<<< develop
-<<<<<<< develop
-export interface ILoan {
-    Fecha:string;
-    
-}
-=======
-=======
->>>>>>> usuario otra vez
 import { IDetail } from './detail';
 import { IUser } from './user';
 export interface ILoan {
