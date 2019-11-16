@@ -8,13 +8,14 @@ import { HomeComponent } from './Components/home/home.component';
 import { BookComponent } from './Components/book/book.component';
 import { ErrorComponent } from './Errors/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
+import { DetailbookComponent } from './Components/detailbook/detailbook.component';
 
 const routes: Routes = [
   { path: 'cards', component:CardsComponent  },
   { path: 'prestamo', component:LoanComponent  },
   {path: 'usuario', component:UserComponent},
-  {path: 'book', component:BookComponent},  
-  {path:'book/:id', component:BookComponent},
+  {path: 'libro', component:BookComponent},  
+  {path:'book/:id', component:DetailbookComponent},
 
   {path: '', component: HomeComponent},
 {path: 'home', component: HomeComponent},

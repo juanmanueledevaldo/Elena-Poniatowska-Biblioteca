@@ -5,7 +5,7 @@ export interface IBook {
     Autor:string;
     Genero:string;
     Estante:string;
-    Año:string;
+    anio:string;
     Editorial:string;
     Paginas:number;
     Borrado:boolean;
