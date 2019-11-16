@@ -51,4 +51,4 @@ export class DetailService {
     );
   }
 }
->>>>>>> usuario otra vez
+
