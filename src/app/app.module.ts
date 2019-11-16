@@ -29,9 +29,11 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ErrorComponent } from './Errors/error/error.component';
+import { DetailbookComponent } from './Components/detailbook/detailbook.component';
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
+
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -46,7 +48,8 @@ import { BookService } from './Service/book.service';
     HomeComponent,
     LoginComponent,
     NavBarComponent,
-    ErrorComponent
+    ErrorComponent,
+    DetailbookComponent
   ],
   imports: [
     HttpClientModule,
