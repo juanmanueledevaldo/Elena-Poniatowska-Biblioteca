@@ -33,7 +33,11 @@ import { DetailbookComponent } from './Components/detailbook/detailbook.componen
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
+<<<<<<< Updated upstream
 
+=======
+import { DetailbookComponent } from './Components/detailbook/detailbook.component';
+>>>>>>> Stashed changes
 //////////////////////////////////////////////////////////////////////////////////
 
 

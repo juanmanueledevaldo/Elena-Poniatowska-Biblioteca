@@ -58,3 +58,7 @@ export class DetailbookComponent implements OnInit {
   }
 
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
