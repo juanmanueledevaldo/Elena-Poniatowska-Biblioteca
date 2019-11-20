@@ -10,4 +10,4 @@ export interface ILoan {
     Usuario:IUser;
     Detalles:IDetail[];
 }
->>>>>>> usuario otra vez
+
