@@ -9,6 +9,7 @@ import { BookComponent } from './Components/book/book.component';
 import { ErrorComponent } from './Errors/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
 import { DetailbookComponent } from './Components/detailbook/detailbook.component';
+import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component';
 
 const routes: Routes = [
   { path: 'cards', component:CardsComponent  },
@@ -16,15 +17,13 @@ const routes: Routes = [
   {path: 'usuario', component:UserComponent},
 
   {path: 'libro', component:BookComponent},  
-
-
+  {path: 'mantenimientousuario', component:AddEditUserComponent},
   {path:'book/:id', component:DetailbookComponent},
-
   {path: '', component: HomeComponent},
-{path: 'home', component: HomeComponent},
-{path: '**', component: ErrorComponent},
-{path:'login', component:LoginComponent},
-{path: 'agregarlibro', component: BookComponent},
+  {path: 'home', component: HomeComponent},
+  {path: '**', component: ErrorComponent},
+  {path:'login', component:LoginComponent},
+  {path: 'agregarlibro', component: BookComponent},
 ];
 
 @NgModule({
