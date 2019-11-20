@@ -14,11 +14,10 @@ const routes: Routes = [
   { path: 'cards', component:CardsComponent  },
   { path: 'prestamo', component:LoanComponent  },
   {path: 'usuario', component:UserComponent},
-<<<<<<< Updated upstream
+
   {path: 'libro', component:BookComponent},  
-=======
-  {path: 'book', component:BookComponent},  
->>>>>>> Stashed changes
+
+
   {path:'book/:id', component:DetailbookComponent},
 
   {path: '', component: HomeComponent},
