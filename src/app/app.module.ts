@@ -30,14 +30,14 @@ import { LoginComponent } from './Components/login/login.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ErrorComponent } from './Errors/error/error.component';
 import { DetailbookComponent } from './Components/detailbook/detailbook.component';
+import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component';
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
-<<<<<<< Updated upstream
 
-=======
-import { DetailbookComponent } from './Components/detailbook/detailbook.component';
->>>>>>> Stashed changes
+
+
+
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -53,7 +53,8 @@ import { DetailbookComponent } from './Components/detailbook/detailbook.componen
     LoginComponent,
     NavBarComponent,
     ErrorComponent,
-    DetailbookComponent
+    DetailbookComponent,
+    AddEditUserComponent
   ],
   imports: [
     HttpClientModule,
