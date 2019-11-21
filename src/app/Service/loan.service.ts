@@ -30,14 +30,6 @@ private _apiUrl ="http://localhost:59417/api/prestamo";
     return throwError(ErrorMessage);
   }
   postLoan(loan:ILoan){
-    let user:IUser = {Id:1,Nombre:"Juan",Apellido:"Garibay",Mote:"Juanitok",Tipo:"Admin",Contraseña:"password",Borrado:false,Activo:true};
-    loan.Usuario = user;
-    loan.Usuarioi = user.Id;
-    loan.Id=0;
-    loan.Folio="";
-    loan.Fecha="";
-    loan.Devolucion="";
-    loan.Estado="";
     return this.http.post(this._apiUrl,loan).pipe(
       catchError(this.handleError)
     );
@@ -47,8 +39,8 @@ private _apiUrl ="http://localhost:59417/api/prestamo";
       retry(1)
     );
   }
-  getFolio(loan:ILoan):Observable<ILoan>{
-    let requestUrl =`${this._apiUrl}/${loan.Folio}`;
+  getFolio(folio:string):Observable<ILoan>{
+    let requestUrl =`${this._apiUrl}/${folio}`;
     return this.http.get<ILoan>(requestUrl).pipe(
       retry(1)
     );

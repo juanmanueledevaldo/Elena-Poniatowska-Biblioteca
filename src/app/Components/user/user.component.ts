@@ -29,7 +29,8 @@ export class UserComponent implements OnInit {
         Apellido: new FormControl(""),
         Contraseña: new FormControl(""),
         Tipo: new FormControl("")
-        //Activo, Borrado
+        //Activo, 
+        //Borrado
       }
     );
   }
@@ -37,6 +38,8 @@ export class UserComponent implements OnInit {
     this.UserForm.reset();
   }
   onSaveForm() {
+
+    debugger;
     this.user.Mote = this.UserForm.get("Mote").value;
     this.user.Nombre = this.UserForm.get("Nombre").value;
     this.user.Apellido = this.UserForm.get("Apellido").value;

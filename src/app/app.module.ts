@@ -14,7 +14,13 @@ import {
   CardsModule
 }
   from 'angular-bootstrap-md';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+  
+import { 
+  FormsModule, 
+  ReactiveFormsModule 
+} 
+from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -29,9 +35,15 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ErrorComponent } from './Errors/error/error.component';
+import { DetailbookComponent } from './Components/detailbook/detailbook.component';
+import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component';
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -46,7 +58,9 @@ import { BookService } from './Service/book.service';
     HomeComponent,
     LoginComponent,
     NavBarComponent,
-    ErrorComponent
+    ErrorComponent,
+    DetailbookComponent,
+    AddEditUserComponent
   ],
   imports: [
     HttpClientModule,

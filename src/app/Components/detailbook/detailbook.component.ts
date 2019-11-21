@@ -1,6 +1,5 @@
 //Component
 import { Component, OnInit } from '@angular/core';
-import Swal from "sweetalert2";
 //////////////////////////////////////////////////
 //Interface
 import { IBook } from 'src/app/Model/book';
@@ -13,12 +12,14 @@ import { DetailService } from 'src/app/Service/detail.service';
 //Route
 import { ActivatedRoute } from '@angular/router';
 //////////////////////////////////////////////////
+
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  selector: 'app-detailbook',
+  templateUrl: './detailbook.component.html',
+  styleUrls: ['./detailbook.component.scss']
 })
-export class BookComponent implements OnInit {
+export class DetailbookComponent implements OnInit {
+
   book: IBook;
   id: any;
   constructor(
@@ -26,6 +27,7 @@ export class BookComponent implements OnInit {
     private _bookService: BookService,
     private route: ActivatedRoute
   ) { }
+
   ngOnInit() {
     this.route.params.subscribe(
       paramsBook => {
@@ -51,23 +53,9 @@ export class BookComponent implements OnInit {
   }
   add() {
     this._detailService.postDetail(this.book).subscribe(res => {
-      Swal.fire(
-        {
-          title:"Ya quedo padrino",
-          showConfirmButton:true,
-          timer:1200
-        }
-      )
-    },
-      error => {
-        Swal.fire(
-          {
-            title:"Valio kbza",
-            text:"Nipedo"
-          }
-        )
-      }
-    )
+      console.log(res);
+    })
   }
 
 }
+

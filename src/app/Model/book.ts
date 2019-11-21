@@ -1,11 +1,11 @@
 export interface IBook {
-    Id:string;
+    Id:number;
     Folio:string;
     Nombre:string;
     Autor:string;
     Genero:string;
     Estante:string;
-    Año:string;
+    anio:string;
     Editorial:string;
     Paginas:number;
     Borrado:boolean;
