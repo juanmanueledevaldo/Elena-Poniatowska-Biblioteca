@@ -1,5 +1,5 @@
 export interface IBook {
-    Id:string;
+    Id:number;
     Folio:string;
     Nombre:string;
     Autor:string;

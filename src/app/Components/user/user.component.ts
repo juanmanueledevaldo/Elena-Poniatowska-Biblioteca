@@ -29,7 +29,8 @@ export class UserComponent implements OnInit {
         Apellido: new FormControl(""),
         Contraseña: new FormControl(""),
         Tipo: new FormControl("")
-        //Activo, Borrado
+        //Activo, 
+        //Borrado
       }
     );
   }

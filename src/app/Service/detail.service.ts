@@ -15,6 +15,7 @@ import { IBook } from 'src/app/Model/book';
 })
 export class DetailService {
   private _apiUrl:string= "http://localhost:59417/api/detalle";
+  loanDetail:IDetail;
   constructor(private http:HttpClient) { }
   private handleError(error:HttpErrorResponse){
     let ErrorMessage="";
@@ -25,11 +26,11 @@ export class DetailService {
     }
     return throwError(ErrorMessage);
   }
-  postDetail(book:IBook){
-    let loanDetail:IDetail;
-    loanDetail.Id = 0;
-    loanDetail.Libro = book;
-    return this.http.post(this._apiUrl, loanDetail).pipe(
+  postDetail(book){
+    this.loanDetail = {
+      Id:0,Libro:null,Libroi:book.id,Prestamo:null,Prestamoi:0
+    };
+    return this.http.post(this._apiUrl, this.loanDetail).pipe(
       catchError(this.handleError)
     );
   }
@@ -46,7 +47,7 @@ export class DetailService {
   }
   delete(id:number){
     let requestUrl =`${this._apiUrl}/${id}`;
-    this.http.delete(requestUrl).pipe(
+    return this.http.delete(requestUrl).pipe(
       catchError(this.handleError)
     );
   }

@@ -1,5 +1,6 @@
 //Component
 import { Component, OnInit } from '@angular/core';
+import Swal from "sweetalert2";
 //////////////////////////////////////////////////
 //Interface
 import { IBook } from 'src/app/Model/book';
@@ -50,8 +51,23 @@ export class BookComponent implements OnInit {
   }
   add() {
     this._detailService.postDetail(this.book).subscribe(res => {
-      console.log(res);
-    })
+      Swal.fire(
+        {
+          title:"Ya quedo padrino",
+          showConfirmButton:true,
+          timer:1200
+        }
+      )
+    },
+      error => {
+        Swal.fire(
+          {
+            title:"Valio kbza",
+            text:"Nipedo"
+          }
+        )
+      }
+    )
   }
 
 }

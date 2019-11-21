@@ -24,24 +24,10 @@ export class CardsComponent implements OnInit {
     this._bookService.getAll().subscribe(
       books => {
         this.bookList = books;
-        console.log(this.bookList);
       },
       error => {
         console.log(error.error.message)
       }
     );
   }
-  add(id: string) {
-    
-    this.getBook(id);
-    
-  }
-  getBook(id: string) {
-    this._bookService.get(id).subscribe(
-      added => {
-        console.log(added);
-      }
-    )
-  }
-
 }

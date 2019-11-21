@@ -1,44 +1,42 @@
+<!-- Default form register -->
+<form class="text-center border border-light p-5" [formGroup]="LoanForm" (ngSubmit)="onSaveForm()">
+  <p class="h4 mb-4">Prestamo</p>
+  <br>
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- First name -->
+      <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <input type="text" formControlName="Estado" class="form-control" placeholder="Estado">
+    </div>
+  </div>
+  <br>
+  <!-- Date -->
+  <div class="md-form">
+    <input type="date" formControlName="Fecha" class="form-control" mdbInput>
+    <label for="input">Fecha del prestamo</label>
+  </div>
+  <!-- Fecha de devolucion -->
+  <div class="md-form">
+    <input type="date" formControlName="Devolucion"  class="form-control" mdbInput>
+    <label for="input">Fecha de devolución</label>
+  </div>
+  <!-- Sign up button -->
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">
+    Registrar Prestamo
+  </button>
+  <!-- Terms of service -->
+  <p>By clicking
+    <em>register</em> you agree to our
+    <a href="" target="_blank">terms of service</a></p>
+</form>
+<ul>
+  <li *ngFor="let item of detailList">
+    <a href="">{{item.id}} - {{item.libroi}}</a>
+    <a href="" class="btn btn-danger" (click)="deleteItem(item.id)">Borrar</a>
+  </li>
+</ul>
 
 <!-- Default form register -->
-<form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Prestamo</p>
-    <br>
-    <div class="form-row mb-4">
-      <div class="col">
-        <!-- First name -->
-        <input type="text" id="name" name="name" class="form-control" placeholder="Nombre">
-      </div>
-      <div class="col">
-        <!-- Last name -->
-        <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Apellido">
-      </div>
-    </div>
-    <br>
-    <!-- Date -->
-    <div class="md-form">
-        <input type="date" id="date" name = "date" class="form-control" mdbInput>
-        <label for="input">Fecha del prestamo</label>
-      </div>
-
-    <!-- Fecha de devolucion -->
-    <div class="md-form">
-        <input type="date" id="datedevo" name = "datedevo" class="form-control" mdbInput>
-        <label for="input">Fecha de devolución</label>
-      </div>
-   
-
-
-    <!-- Sign up button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Registrar Prestamo</button>
-
-    
-
-    <!-- Terms of service -->
-    <p>By clicking
-      <em>register</em> you agree to our
-      <a href="" target="_blank">terms of service</a></p>
-
-  </form>
-
-  <!-- Default form register -->

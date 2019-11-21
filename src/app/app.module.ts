@@ -14,7 +14,13 @@ import {
   CardsModule
 }
   from 'angular-bootstrap-md';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+  
+import { 
+  FormsModule, 
+  ReactiveFormsModule 
+} 
+from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 
 //////////////////////////////////////////////////////////////////////////////////

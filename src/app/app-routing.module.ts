@@ -10,26 +10,25 @@ import { ErrorComponent } from './Errors/error/error.component';
 import { LoginComponent } from './Components/login/login.component';
 
 const routes: Routes = [
-  { path: 'cards', component:CardsComponent  },
-  { path: 'prestamo', component:LoanComponent  },
-  {path: 'usuario', component:UserComponent},
-  {path: 'book', component:BookComponent},  
-  {path:'book/:id', component:BookComponent},
-
-  {path: '', component: HomeComponent},
-{path: 'home', component: HomeComponent},
-{path: '**', component: ErrorComponent},
-{path:'login', component:LoginComponent},
-{path: 'agregarlibro', component: BookComponent},
+  { path: 'cards', component: CardsComponent },
+  { path: 'prestamo', component: LoanComponent },
+  { path: 'usuario', component: UserComponent },
+  { path: 'book', component: BookComponent },
+  { path: 'book/:id', component: BookComponent },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', component: ErrorComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'agregarlibro', component: BookComponent },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [ RouterModule.forRoot(routes)
-  
-  
+  imports: [RouterModule.forRoot(routes)
+
+
   ],
   exports: [RouterModule]
- 
+
 })
 export class AppRoutingModule { }
