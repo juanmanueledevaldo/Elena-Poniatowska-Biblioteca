@@ -1,63 +1,120 @@
 <!-- Default form register -->
-<form class="text-center border border-light p-5">
+<div class="card bg-light">
 
+  <article class="card-body mx-auto" style="max-width: 400px;">
     <p class="h4 mb-4">Registro de usuario</p>
-    <br>
-    <input type="text" id="username" name="username" class="form-control mb-4" placeholder="Nickname">
-
-    <!-- name -->
-    <input type="text" id="name" name="username" class="form-control mb-4" placeholder="Nombre">
-
-    
-    <!-- lastname -->
-    <input type="text" id="lastname" name="lastname" class="form-control mb-4" placeholder="Apellido">
-
-   <!-- Matricula -->
-   <input type="text" id="enrollment" name="enrollment" class="form-control mb-4" placeholder="Matricula">
- 
-   <!-- Telefono -->
-  <input type="number" id="phonenumber" name="phonenumber" class="form-control mb-4" placeholder="Numero de telefono">
-
-   <!-- Email -->
-  <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
-
-   <!-- Contraseña -->
-   <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Contraseña">
-   
-   
-   <!-- Carrera -->
-   <label>Carrera</label>
-   <select class="browser-default custom-select mb-4">
-    <option value="" disabled>Seleccione una carrera</option>
-    <option value="1" selected>TIC</option>
-    <option value="2">Procesos Industriales</option>
-    <option value="3">Mercadotecnia</option>
-    <option value="4">Mecatronica</option>
-    <option value="5">Posventa Automotriz</option>
-    <option value="6">Mantenimiento Industrial</option>
-    <option value="7">Aeronautica</option>
-   </select>
-
-
-
-   <!-- Tipo de usuario -->
-   <label>Tipo Usuario</label>
-   <select class="browser-default custom-select mb-4" aria-placeholder="Tipo de usuario">
-    <option value="" disabled>Seleccione un tipo de usuario</option>
-    <option value="1" selected>Alumno</option>
-    <option value="2">Maestro</option>
   
-    </select>
-    <!-- Sign up button -->
-    <button mdbBtn color="info"   (click)="onSaveForm()" block="true" class="my-4">Registrar</button>
+    <p class="divider-text">
+          <span class="bg-light">Registro</span>
+      </p>
+      <hr>
+    <form>
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="far fa-user"></i> </span>
+       </div>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Nickname">
+      </div> <!-- form-group// -->
+
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+           </div>
+                <!-- name -->
+           <input type="text" id="name" name="username" class="form-control" placeholder="Nombre">
+          </div> <!-- form-group// -->
+
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                   </div>
+                        <!-- name -->
+            <!-- lastname -->
+                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Apellido">
+                  </div> <!-- form-group// --> 
+                  
+                  <div class="form-group input-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-id-card"></i> </span>
+                       </div>
+                            <!-- name -->
+         
+                <!-- Matricula -->
+                <input type="text" id="enrollment" name="enrollment" class="form-control" placeholder="Matricula">
+                      </div> <!-- form-group// --> 
+
+             
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+       </div>
+          <input name="Email" id="Email" class="form-control" placeholder="Correo Electronico" type="email">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+      </div>
+      <select class="custom-select" style="max-width: 120px;">
+          <option selected="">Seleccione una lada</option>
+          <option value="1">+52</option>
+          <option value="2">+1</option>
+          <option value="3">+91</option>
+      </select>
+        <input name="Phone" id="Phone" class="form-control" placeholder="Numero Telefonico" type="text">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-university"></i> </span>
+      </div>
+      <select class="custom-select">
+        <option selected="">Seleccione la carrera</option>
+        <option value="1">TIC</option>
+        <option value="2">Procesos Industriales</option>
+        <option value="3">Mercadotecnia</option>
+        <option value="4">Mecatronica</option>
+        <option value="5">Posventa Automotriz</option>
+        <option value="6">Mantenimiento Industrial</option>
+        <option value="7">Aeronautica</option>
+      </select>
+    </div> <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+      </div>
+        <!-- Contraseña -->
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+      </div>
+          <input  class="form-control" placeholder="Repite la contraseña" type="password">
+      </div> <!-- form-group// -->                                      
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Crear Cuenta</button>
+      </div> <!-- form-group// -->      
+      <p class="text-center">Ya tienes cuenta? <a href="iniciarsesion">Iniciar Sesión</a> </p>                                                                 
+  </form>
+  </article>
+  </div> <!-- card.// -->
+  
+
+
+
+
+   
+  
+    
+
+
 
     
 
-    <!-- Terms of service -->
-    <p>By clicking
-      <em>register</em> you agree to our
-      <a href="" target="_blank">terms of service</a></p>
 
-  </form>
-  <!-- Default form register -->
+ 
+  
 
+   
+   
+  
