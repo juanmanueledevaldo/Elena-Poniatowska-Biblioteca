@@ -11,4 +11,5 @@ export interface IBook {
     Borrado:boolean;
     Stock:number;
     Imagen:string;
+    descripcion:string;
 }
