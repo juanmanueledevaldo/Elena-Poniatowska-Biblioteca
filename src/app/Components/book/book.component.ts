@@ -1,73 +1,95 @@
-//Component
-import { Component, OnInit } from '@angular/core';
-import Swal from "sweetalert2";
-//////////////////////////////////////////////////
-//Interface
-import { IBook } from 'src/app/Model/book';
-import { IDetail } from 'src/app/Model/detail';
-//////////////////////////////////////////////////
-//Servicio
-import { BookService } from 'src/app/Service/book.service';
-import { DetailService } from 'src/app/Service/detail.service';
-//////////////////////////////////////////////////
-//Route
-import { ActivatedRoute } from '@angular/router';
-//////////////////////////////////////////////////
+//COMPONENT
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import Swal from "sweetalert2"
+//COMPONENT//////////////////////////////////////////////////
+//INTERFACE
+import { IBook } from 'src/app/Model/book'
+import { IDetail } from 'src/app/Model/detail'
+//INTERFACE//////////////////////////////////////////////////
+//SERVICE
+import { BookService } from 'src/app/Service/book.service'
+import { DetailService } from 'src/app/Service/detail.service'
+//SERVICE//////////////////////////////////////////////////
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
-  book: IBook;
-  id: any;
-  constructor(
+export class BookComponent implements OnInit {//VAR
+  id: any
+  book: IBook
+  detail: IDetail
+  //VAR/////////////////////////////////////////////////////
+  constructor(//LOADPAGE
+    
     private _detailService: DetailService,
     private _bookService: BookService,
     private route: ActivatedRoute
   ) { }
   ngOnInit() {
+    this.get()
+    
+  }//LOADPAGE/////////////////////////////////////////////////////
+  get() //METODS//IBOOK
+  {
     this.route.params.subscribe(
       paramsBook => {
-        console.log(paramsBook["id"]);
-        this.id = paramsBook["id"];
+        this.id = paramsBook["id"]
         if (this.id) {
           this._bookService.get(this.id).subscribe(
             book => {
-          
-              this.book = book;
+              this.book = book
+              Swal.fire(
+                {
+                  title: `${this.book.Nombre}`,
+                }
+              )
             },
             error => {
-              console.log(error);
+          
             }
           )
-        } else
-          console.log("no hay libro");
+        }
+        else
+          Swal.fire(
+            {
+              text: "Elige un libro"
+            }
+          )
       },
       err => {
-        console.log(err);
+        Swal.fire(
+          {
+            title: "Que haces por aqui"
+          }
+        )
       }
     )
-  }
-  add() {
-    this._detailService.postDetail(this.book).subscribe(res => {
+    
+  }//IBOOK///////////////////////////////////////////////////// 
+  add() //IDETAIL
+  {
+    this._detailService.post(this.book).subscribe(res => {
       Swal.fire(
         {
-          title:"Ya quedo padrino",
-          showConfirmButton:true,
-          timer:1200
+          title: "Ya quedo padrino",
+          showConfirmButton: true,
+          timer: 1200
         }
       )
     },
       error => {
         Swal.fire(
           {
-            title:"Valio kbza",
-            text:"Nipedo"
+            title: "Valio kbza",
+            text: "Nipedo"
           }
         )
       }
     )
-  }
-
+    //METODS/////////////////////////////////////////////////////
+  }//IDETAIL/////////////////////////////////////////////////////
+  //METODS///////////////////////////////////////////////////////
 }

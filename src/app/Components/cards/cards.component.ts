@@ -1,14 +1,15 @@
-//Component
-import { Component, OnInit } from '@angular/core';
+//COMPONENT
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import Swal from "sweetalert2"
+//COMPONENT////////////////////////////////////////////////////////////
+//INTERFACE
+import { IBook } from 'src/app/Model/book'
+//INTERFACE
 ////////////////////////////////////////////////////////////
-//Interface
-import { IBook } from 'src/app/Model/book';
-////////////////////////////////////////////////////////////
-//Service
-import { BookService } from 'src/app/Service/book.service';
-////////////////////////////////////////////////////////////
-//Alert
-////////////////////////////////////////////////////////////
+//SERVICE
+import { BookService } from 'src/app/Service/book.service'
+//SERVICE/////////////////////////////////////////////////////////
 
 
 @Component({
@@ -16,18 +17,32 @@ import { BookService } from 'src/app/Service/book.service';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss']
 })
-export class CardsComponent implements OnInit {
-  public bookList: IBook[] = [];
-  filter = "";
-  constructor(private _bookService: BookService) { }
+export class CardsComponent implements OnInit {//VAR
+  filter = ""
+  public bookList: IBook[] = []
+  //VAR////////////////////////////////////////////
+  constructor(//LOADPAGE
+    private _bookService: BookService
+  ) { }
   ngOnInit() {
+    this.gets()
+  }//LOADPAGE////////////////////////////////////////////
+  gets(){//METODS///IBOOK[]
     this._bookService.getAll().subscribe(
       books => {
-        this.bookList = books;
+        this.bookList = books
+        Swal.fire(
+          {
+            title:"Libros cargados correctamente"
+          }
+        )
       },
       error => {
-        
+
       }
     );
   }
+  
+  //METODS////////////////////////////////////////////
+  
 }

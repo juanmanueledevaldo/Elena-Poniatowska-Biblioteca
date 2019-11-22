@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+//COMPONENT
+import { Component, OnInit } from '@angular/core'
+//COMPONENT////////////////////////////////////////////
+//INTERFACE
+//INTERFACE////////////////////////////////////////////
+//SERVICE
+//SERVICE////////////////////////////////////////////
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
@@ -10,6 +15,8 @@ export class LogComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
+  
 
 }
