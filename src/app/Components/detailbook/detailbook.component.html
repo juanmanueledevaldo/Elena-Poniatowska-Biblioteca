@@ -7,6 +7,10 @@
               <div class="col-md-6">
               <div class="product-block">
              <img src="{{book.imagen}}">
+             <p>Autor: {{book.autor}} </p>
+             <p>Año Publicado: {{book.anio}} </p>
+             <p>Genero: {{book.genero}} </p>
+             <p>{{book.paginas}} paginas </p>  
              </div>
             </div>
          
@@ -15,16 +19,12 @@
        <div class="product-block">
          <h3>{{book.nombre}}<hr></h3>
          <div class="product-info panel">
-             <p>Autor: {{book.autor}} </p>
-             <p>Editorial: {{book.editorial}} </p>
-             <p>año: {{book.anio}} </p>
-             <p>Genero: {{book.genero}} </p>
-             <p>Paginas del Libro: {{book.paginas}} pag </p>
+            <p> {{book.descripcion}}</p>
              <p>
                  <a  class="btn btn-warning btn-block" href="prestamo">Solicitar Libro</a>
              </p>
          </div>           
-                    
+          
         </div>
          </div>
          <hr>

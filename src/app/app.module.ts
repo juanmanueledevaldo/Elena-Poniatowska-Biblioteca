@@ -1,6 +1,6 @@
 //MODULE
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -37,6 +37,7 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ErrorComponent } from './Errors/error/error.component';
 import { DetailbookComponent } from './Components/detailbook/detailbook.component';
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
@@ -60,16 +61,20 @@ import { BookService } from './Service/book.service';
     NavBarComponent,
     ErrorComponent,
     DetailbookComponent,
-    AddEditUserComponent
+    AddEditUserComponent,
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   imports: [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule, NgbModule,
     ReactiveFormsModule,
+    
     DropdownModule, DropdownModule.forRoot(),
     CheckboxModule, WavesModule, ButtonsModule, InputsModule, IconsModule, CardsModule
 
