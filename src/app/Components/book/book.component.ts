@@ -53,7 +53,6 @@ export class BookComponent implements OnInit {
     this._detailService.postDetail(this.book).subscribe(res => {
       Swal.fire(
         {
-          
           title:"Ya quedo padrino",
           showConfirmButton:true,
           timer:1200

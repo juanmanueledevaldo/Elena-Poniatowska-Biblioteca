@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'prestamo', component:LoanComponent  },
   { path: 'prestamo/:id', component:LoanComponent  },
   {path: 'usuario', component:UserComponent},
-
   {path: 'libro', component:BookComponent},  
   {path: 'mantenimientousuario', component:AddEditUserComponent},
   {path:'book/:id', component:BookComponent},
