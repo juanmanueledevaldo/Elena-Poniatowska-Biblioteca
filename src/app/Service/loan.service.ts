@@ -16,7 +16,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class LoanService {
   details:IDetail[];
-private _apiUrl ="http://localhost:59417/api/prestamo";
+private _apiUrl ="https://localhost:44375/api/prestamo";
   constructor(
     private http:HttpClient
   ) { }
@@ -30,6 +30,9 @@ private _apiUrl ="http://localhost:59417/api/prestamo";
     return throwError(ErrorMessage);
   }
   postLoan(loan:ILoan){
+    loan={
+      Id:0,Detalles:null,Devolucion:"",Estado:"",Fecha:"",Folio:"",Usuario:null, Usuarioi:1
+    };
     return this.http.post(this._apiUrl,loan).pipe(
       catchError(this.handleError)
     );

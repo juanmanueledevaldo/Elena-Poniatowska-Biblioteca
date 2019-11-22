@@ -71,7 +71,7 @@ export class LoanComponent implements OnInit {
       this.loan.Devolucion = this.LoanForm.get("Devolucion").value;
       this.loan.Estado = this.LoanForm.get("Estado").value;
       this.loan.Usuarioi = 1;
-      this.loan.Detalles = this.detailList;
+     
       if (this.loan.Id != null) {
         this._loanService.update(this.loan).subscribe(
           data => {
@@ -95,6 +95,7 @@ export class LoanComponent implements OnInit {
         )
       }
       else {
+
         this._loanService.postLoan(this.loan).subscribe(
           data => {
             Swal.fire(
