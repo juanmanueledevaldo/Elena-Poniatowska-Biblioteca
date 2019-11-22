@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
-
+  isFixedNavbar;
+  @HostBinding('class.navbar-opened') navbarOpened = false;
+  constructor(
+  ) { }
   ngOnInit() {
   }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if(offset > 10) {
+      this.isFixedNavbar = true;
+    } else {
+      this.isFixedNavbar = false;
+    }
+  }
+
+  toggleNavbar() {
+    this.navbarOpened = !this.navbarOpened;
+  }
+
 
 }
