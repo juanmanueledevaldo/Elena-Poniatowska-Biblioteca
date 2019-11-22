@@ -18,13 +18,14 @@ const routes: Routes = [
   { path: 'prestamo/:id', component: LoanComponent },
   { path: 'usuario', component: UserComponent },
   { path: 'libro', component: BookComponent },
+  { path: 'agregarlibro', component: BookComponent },
   { path: 'mantenimientousuario', component: AddEditUserComponent },
   { path: 'book/:id', component: DetailbookComponent },
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', component: ErrorComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'agregarlibro', component: BookComponent },
+  
   { path: 'log', component: LogComponent },
 ];
 

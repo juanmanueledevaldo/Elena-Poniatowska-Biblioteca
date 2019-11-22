@@ -5,17 +5,16 @@
   <div class="row">
     <div class="col-md-6">
       <form class="text-center border border-light p-5" [formGroup]="LoanForm" (ngSubmit)="onSaveForm()">
-        <div class="form-row mb-4">
-          <div class="col">
+        <div class="form-row mb-4 ">
+          <div class="col md-form ">
             <!-- First name -->
             <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
           </div>
-          <div class="col">
+          <div class="col md-form">
             <!-- Last name -->
             <input type="text" formControlName="Estado" class="form-control" placeholder="Estado">
           </div>
         </div>
-        <br>
         <!-- Date -->
         <div class="md-form">
           <input type="date" formControlName="Fecha" class="form-control" mdbInput>
