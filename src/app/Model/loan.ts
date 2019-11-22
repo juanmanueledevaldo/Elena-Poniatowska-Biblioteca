@@ -8,6 +8,6 @@ export interface ILoan {
     Estado:string;
     Usuarioi:number;
     Usuario:IUser;
-    Detalles:IDetail[];
+    Detalle:IDetail[];
 }
 

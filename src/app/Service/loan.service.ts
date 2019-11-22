@@ -30,9 +30,7 @@ private _apiUrl ="https://localhost:44375/api/prestamo";
     return throwError(ErrorMessage);
   }
   postLoan(loan:ILoan){
-    loan={
-      Id:0,Detalles:null,Devolucion:"",Estado:"",Fecha:"",Folio:"",Usuario:null, Usuarioi:1
-    };
+    debugger;
     return this.http.post(this._apiUrl,loan).pipe(
       catchError(this.handleError)
     );

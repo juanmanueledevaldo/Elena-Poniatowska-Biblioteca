@@ -34,7 +34,7 @@ export class BookComponent implements OnInit {
         if (this.id) {
           this._bookService.get(this.id).subscribe(
             book => {
-              console.log(book);
+          
               this.book = book;
             },
             error => {
@@ -53,6 +53,7 @@ export class BookComponent implements OnInit {
     this._detailService.postDetail(this.book).subscribe(res => {
       Swal.fire(
         {
+          
           title:"Ya quedo padrino",
           showConfirmButton:true,
           timer:1200

@@ -14,6 +14,7 @@ import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.c
 const routes: Routes = [
   { path: 'cards', component:CardsComponent  },
   { path: 'prestamo', component:LoanComponent  },
+  { path: 'prestamo/:id', component:LoanComponent  },
   {path: 'usuario', component:UserComponent},
 
   {path: 'libro', component:BookComponent},  

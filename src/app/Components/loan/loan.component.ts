@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 export class LoanComponent implements OnInit {
   @Input('data') LoanFormm: FormGroup;
   @Output() OnSaveLoan = new EventEmitter<ILoan>();
-  loan: ILoan = { Id: 0, Folio: "", Detalles: null, Devolucion: "", Estado: "", Fecha: "", Usuario: null, Usuarioi: 0 };
+  loan: ILoan = { Id: 0, Folio: "", Detalle: null, Devolucion: "", Estado: "", Fecha: "", Usuario: null, Usuarioi: 0 };
   LoanForm: FormGroup;
   public detailList: IDetail[] = [];
   constructor(
@@ -26,6 +26,7 @@ export class LoanComponent implements OnInit {
   ngOnInit() {
     this.getList();
     this.LoanForm = this.CreateFormGroup();
+  
     this.route.params.subscribe(
       params => {
         this.loan.Id = params["id"];
@@ -65,14 +66,14 @@ export class LoanComponent implements OnInit {
   }
   onSaveForm() {
     if (this.LoanForm.valid) {
-
+      this.loan.Id = 0;
       this.loan.Folio = this.LoanForm.get("Folio").value;
       this.loan.Fecha = this.LoanForm.get("Fecha").value;
       this.loan.Devolucion = this.LoanForm.get("Devolucion").value;
       this.loan.Estado = this.LoanForm.get("Estado").value;
       this.loan.Usuarioi = 1;
-     
-      if (this.loan.Id != null) {
+
+      if (this.loan.Id != null && this.loan.Id !=0) {
         this._loanService.update(this.loan).subscribe(
           data => {
             Swal.fire(
@@ -95,9 +96,10 @@ export class LoanComponent implements OnInit {
         )
       }
       else {
-
+        debugger;
         this._loanService.postLoan(this.loan).subscribe(
           data => {
+            debugger;
             Swal.fire(
               {
                 title: "Creado",
@@ -107,10 +109,12 @@ export class LoanComponent implements OnInit {
             )
           },
           error => {
+
             Swal.fire(
               {
+
                 title: "valio kabezuki.com",
-                text: "Revisalo", 
+                text: "Revisalo",
                 footer: `F`
               }
             )
@@ -135,19 +139,27 @@ export class LoanComponent implements OnInit {
   }
   deleteItem(id: number) {
     this._detailService.delete(id).subscribe(
-      data => location.reload()
+      data =>{
+        location.reload()
+        Swal.fire(
+          {
+            title:"Eliminado",
+            text:"Holap"
+          }
+        )
+      } 
     )
   }
-  get folio(){
+  get folio() {
     return this.LoanForm.get("Folio");
   }
-  get estado(){
+  get estado() {
     return this.LoanForm.get("Estado")
   }
-  get fecha(){
+  get fecha() {
     return this.LoanForm.get("Fecha")
-  } 
-  get devolucion(){
+  }
+  get devolucion() {
     return this.LoanForm.get("Devolucion")
   }
 
