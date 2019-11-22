@@ -1,47 +1,37 @@
-<app-nav-bar></app-nav-bar>
-<div class="container text-center"> 
-        <div class="pb-2 mt-4 mb-2 border-bottom">
-           <h1><i class="fa fa-book" aria-hidden="true"></i> Detalle de Libro</h1>    
-          </div>
-          
-          <div class="row">
-              <div class="col-md-6">
-              <div class="product-block">
-             <img src="{{book.imagen}}">
-             </div>
+<div class="container text-center">
+    <div class="pb-2 mt-4 mb-2 border-bottom">
+        <h1><i class="fa fa-book" aria-hidden="true"></i> Detalle de Libro</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                <a class="btn btn-primary center" href="home">
+                    <i class="fa fa-chevron-circle-left"></i>
+                    Regresar
+                </a>
+            </p>
+            <div class="product-block">
+                <img src="{{book.imagen}}">
             </div>
-         
-
-          <div class="col-md-6">
-       <div class="product-block">
-         <h3>{{book.nombre}}<hr></h3>
-         <div class="product-info panel">
-             <p>Autor: {{book.autor}} </p>
-             <p>Editorial: {{book.editorial}} </p>
-             <p>año: {{book.anio}} </p>
-             <p>Genero: {{book.genero}} </p>
-             <p>Paginas del Libro: {{book.paginas}} pag </p>
-             <p>
-                 <a  class="btn btn-warning btn-block" href="prestamo">Solicitar Libro</a>
-             </p>
-         </div>           
-                    
         </div>
-         </div>
-         <hr>
-       <p>
-           <a class="btn btn-primary center" href="home">
-            <i class="fa fa-chevron-circle-left"></i>   
-            Regresar </a>
-        </p>
+        <div class="col-md-6">
+            <div class="product-block">
+                <h3>
+                    {{book.nombre}}
+                    <hr>
+                </h3>
+                <div class="product-info panel">
+                    <p>Autor: {{book.autor}} </p>
+                    <p>Editorial: {{book.editorial}} </p>
+                    <p>año: {{book.anio}} </p>
+                    <p>Genero: {{book.genero}} </p>
+                    <p>Paginas del Libro: {{book.paginas}} pag </p>
+                    <p>
+                        <a class="btn btn-warning btn-block" href="prestamo">Solicitar Libro</a>
+                    </p>
+                </div>
+            </div>
         </div>
-
-    
-        
-    
-
+        <hr>
+    </div>
 </div>
-
-
-
-

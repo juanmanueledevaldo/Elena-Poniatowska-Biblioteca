@@ -1,38 +1,10 @@
-
-<app-nav-admin></app-nav-admin>
-<br><br><br>
-<form #formBook="ngForm" class="col-lg-6" id="form-book">
-
-    <label>Nombre
-        <span  *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
-      </label>
-    <input type="text" #nombre="ngModel" name="name" [(ngModel)]="nombre.nombre" class="form-control" placeholder="Ingresa el nombre" required/>
-    
-
-    <label>Autor</label>
-    <input type="text" #author="ngModel" name="author" [(ngModel)]="book.author" class="form-control" placeholder="Ingresa el autor"/>
-
-    <label>Genero</label>
-    <input type="text" #gender="ngModel" name="gender" [(ngModel)]="book.gender" class="form-control" placeholder="Ingresa el genero"/>
-
-    <label>Estante</label>
-    <input type="text" #rack="ngModel" name="rack" [(ngModel)]="book.rack" class="form-control" placeholder="Ingresa el estante en el cual se ubica el libro"/>
-
-    <label>Editorial</label>
-    <input type="text" #editorial="ngModel" name="editorial" [(ngModel)]="book.editorial" class="form-control" placeholder="Ingresa la editorial"/>
-
-    <label>Paginas</label>
-    <input type="text" #pages="ngModel" name="pages" [(ngModel)]="book.pages" class="form-control" placeholder="Ingresa el número de paginas del libro"/>
-
-    <label>Stock</label>
-    <input type="text" #stock="ngModel" name="stock" [(ngModel)]="book.stock" class="form-control" placeholder="Ingresa numero de libros disponibles"/>
-
-    <label>Imagen</label>
-    <input type="file" #image="ngModel" name="image" [(ngModel)]="book.image" class="form-control"/>  
-
-    <br/>
-    <button type="submit" class="btn btn-primary">Guardar Libro</button>
-</form>
-
-<hr>
-
+<div class="text-center border border-light p-5">
+  <div>
+    <img src="../../../assets/Images/2827_1_books_01831_lacabana.jpg" alt="" srcset="">
+    <h5 class="card-title">La cabaña</h5>
+    <h6 class="card-subtitle mb-2 text-muted">William P. Young</h6>
+    <p class="card-text">La cabaña es un libro que el rodrax ha estado chingando mucho por leer</p>
+    <a href="#" class="card-link">Link1</a>
+    <a id="boton" class="btn btn-outline-primary" (click)="add()">Compralo we</a>
+  </div>
+</div>

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+//COMPONENT
+import { Component, OnInit } from '@angular/core'
+//COMPONENT/////////////////////////////////////////
+//INTERFACE
+//INTERFACE/////////////////////////////////////////
+//SERVICE
+//SERVICE/////////////////////////////////////////
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

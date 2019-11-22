@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+//COMPONENT
+import { Component, OnInit } from '@angular/core'
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap'
+//COMPONENT//////////////////////////////////////////
+//INTERFACE
 
+//INTERFACE//////////////////////////////////////////
+//SERVICE
+
+//SERVICE//////////////////////////////////////////
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,8 +15,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(config: NgbCarouselConfig) {  
+    config.interval = 2500; 
+    config.wrap = true; 
+    config.keyboard = false; 
+    config.pauseOnHover = true; 
+  }  
   ngOnInit() {
   }
 
