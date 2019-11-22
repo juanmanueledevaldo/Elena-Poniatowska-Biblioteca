@@ -41,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
+import { LogComponent } from './Components/log/log.component';
 
 
 
@@ -62,6 +63,7 @@ import { BookService } from './Service/book.service';
     ErrorComponent,
     DetailbookComponent,
     AddEditUserComponent,
+    LogComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
