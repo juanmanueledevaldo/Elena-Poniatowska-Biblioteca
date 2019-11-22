@@ -34,6 +34,7 @@ import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.c
 //////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service';
+import { NavAdminComponent } from './Components/nav-admin/nav-admin.component';
 
 
 
@@ -54,7 +55,8 @@ import { BookService } from './Service/book.service';
     NavBarComponent,
     ErrorComponent,
     DetailbookComponent,
-    AddEditUserComponent
+    AddEditUserComponent,
+    NavAdminComponent
   ],
   imports: [
     HttpClientModule,
