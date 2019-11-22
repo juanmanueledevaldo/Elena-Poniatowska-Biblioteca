@@ -1,37 +1,46 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-dark elegant-color-dark" [containerInside]="false"
+  [iconBackground]="['amber', 'darken-2']">
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="/">EPBiblioteca</a></mdb-navbar-brand>
+  <!-- Collapsible content -->
+  <links>
 
-   <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-dark elegant-color-dark" [containerInside]="false" [iconBackground]="['amber', 'darken-2']">
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
 
-    <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="/">EPBiblioteca</a></mdb-navbar-brand>
-  
-    <!-- Collapsible content -->
-    <links>
-  
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-           
-     <li class="nav-item active">
+      <li class="nav-item active">
         <a class="nav-link" href="home">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item ">
-          <a class="nav-link " href="login">Iniciar Sesión</a>
-       
+        <a class="nav-link " href="login">Iniciar Sesión</a>
+
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="libro">libro </a>
+
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="agregarlibro">Agregar Libro</a>
+
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="mantenimientousuario">Manten</a>
+
       </li>
       <li class="nav-item">
         <a class="nav-link" href="usuario">Registrate</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="prestamo">Solicitar prestamo <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="prestamo">Solicitar prestamo <span class="sr-only">(current)</span></a>
       </li>
-        </ul>
-        <!-- Links -->
-    </links>
-    <!-- Collapsible content -->
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
   <form class="form-inline my-2 my-lg-0 ml-auto">
-        <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Buscar</button>
-      </form>
-  </mdb-navbar>
-  <!--/.Navbar-->
-
+    <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+    <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Buscar</button>
+  </form>
+</mdb-navbar>
+<!--/.Navbar-->

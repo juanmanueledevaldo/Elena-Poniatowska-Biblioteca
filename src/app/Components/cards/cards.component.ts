@@ -26,7 +26,7 @@ export class CardsComponent implements OnInit {
         this.bookList = books;
       },
       error => {
-        console.log(error.error.message)
+        
       }
     );
   }
