@@ -20,12 +20,12 @@ import { CommonModule } from '@angular/common'
 
 const routes: Routes = [
   { path: 'cards', component: CardsComponent },
-  { path: 'prestamo', component: LoanComponent },
-  { path: 'prestamo/:id', component: LoanComponent },
-  { path: 'usuario', component: UserComponent },
-  { path: 'libro', component: BookComponent },
-  { path: 'agregarlibro', component: BookComponent },
-  { path: 'mantenimientousuario', component: AddEditUserComponent },
+  { path: 'loan', component: LoanComponent },
+  { path: 'loan/:id', component: LoanComponent },
+  { path: 'usser', component: UserComponent },
+  { path: 'book', component: BookComponent },
+  { path: 'addbook', component: BookComponent },
+  { path: 'usermaintenance', component: AddEditUserComponent },
   { path: 'book/:id', component: DetailbookComponent },
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
