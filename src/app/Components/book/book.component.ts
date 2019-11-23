@@ -29,67 +29,67 @@ export class BookComponent implements OnInit {//VAR
     private route: ActivatedRoute
   ) { }
   ngOnInit() {
-    this.get()
+    //this.get()
     
   }//LOADPAGE/////////////////////////////////////////////////////
-  get() //METODS//IBOOK
-  {
-    this.route.params.subscribe(
-      paramsBook => {
-        this.id = paramsBook["id"]
-        if (this.id) {
-          this._bookService.get(this.id).subscribe(
-            book => {
-              this.book = book
-              Swal.fire(
-                {
-                  title: `${this.book.Nombre}`,
-                }
-              )
-            },
-            error => {
+//   get() //METODS//IBOOK
+//   {
+//     this.route.params.subscribe(
+//       paramsBook => {
+//         this.id = paramsBook["id"]
+//         if (this.id) {
+//           this._bookService.get(this.id).subscribe(
+//             book => {
+//               this.book = book
+//               Swal.fire(
+//                 {
+//                   title: `${this.book.Nombre}`,
+//                 }
+//               )
+//             },
+//             error => {
           
-            }
-          )
-        }
-        else
-          Swal.fire(
-            {
-              text: "Elige un libro"
-            }
-          )
-      },
-      err => {
-        Swal.fire(
-          {
-            title: "Que haces por aqui"
-          }
-        )
-      }
-    )
+//             }
+//           )
+//         }
+//         else
+//           Swal.fire(
+//             {
+//               text: "Elige un libro"
+//             }
+//           )
+//       },
+//       err => {
+//         Swal.fire(
+//           {
+//             title: "Que haces por aqui"
+//           }
+//         )
+//       }
+//     )
     
-  }//IBOOK///////////////////////////////////////////////////// 
-  add() //IDETAIL
-  {
-    this._detailService.post(this.book).subscribe(res => {
-      Swal.fire(
-        {
-          title: "Ya quedo padrino",
-          showConfirmButton: true,
-          timer: 1200
-        }
-      )
-    },
-      error => {
-        Swal.fire(
-          {
-            title: "Valio kbza",
-            text: "Nipedo"
-          }
-        )
-      }
-    )
-    //METODS/////////////////////////////////////////////////////
-  }//IDETAIL/////////////////////////////////////////////////////
-  //METODS///////////////////////////////////////////////////////
-}
+//   }//IBOOK///////////////////////////////////////////////////// 
+//   add() //IDETAIL
+//   {
+//     this._detailService.post(this.book).subscribe(res => {
+//       Swal.fire(
+//         {
+//           title: "Ya quedo padrino",
+//           showConfirmButton: true,
+//           timer: 1200
+//         }
+//       )
+//     },
+//       error => {
+//         Swal.fire(
+//           {
+//             title: "Valio kbza",
+//             text: "Nipedo"
+//           }
+//         )
+//       }
+//     )
+//     //METODS/////////////////////////////////////////////////////
+//   }//IDETAIL/////////////////////////////////////////////////////
+//   //METODS///////////////////////////////////////////////////////
+ }
