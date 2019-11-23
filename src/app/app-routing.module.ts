@@ -29,9 +29,10 @@ const routes: Routes = [
   { path: 'book/:id', component: DetailbookComponent },
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: ErrorComponent },
   { path: 'login', component: LoginComponent },
   { path: 'log', component: LogComponent },
+  { path: '**', component: ErrorComponent },
+  
 ]
 
 @NgModule({
