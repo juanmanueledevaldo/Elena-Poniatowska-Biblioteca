@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'loan/:id', component: LoanComponent },
-  { path: 'usser', component: UserComponent },
+  { path: 'user', component: UserComponent },
   { path: 'book', component: BookComponent },
   { path: 'addbook', component: BookComponent },
   { path: 'usermaintenance', component: AddEditUserComponent },
