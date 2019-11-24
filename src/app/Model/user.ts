@@ -7,5 +7,10 @@ export interface IUser {
     Activo:boolean
     Borrado:boolean
     Tipo:string
-    
+    Matricula: string
+    Telefono: string
+    Email: string
+    Carrera: string
+    Cuatrimestre: string
+    Grupo: string
 }
