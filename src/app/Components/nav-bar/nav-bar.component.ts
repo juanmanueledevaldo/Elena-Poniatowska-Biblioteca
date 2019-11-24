@@ -12,26 +12,16 @@ import { Component, OnInit, HostBinding, HostListener } from '@angular/core'
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {//VAR
-  isFixedNavbar
-  @HostBinding('class.navbar-opened') navbarOpened = false
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
   //VAR/////////////////////////////////////////
   constructor(//LOADPAGE
   ) { }
   ngOnInit() {
   }//LOADPAGE/////////////////////////////////////////
   
-  @HostListener('window:scroll', [])
-  onWindowScroll() //METODS
-  {
-    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    if(offset > 10) {
-      this.isFixedNavbar = true
-    } else {
-      this.isFixedNavbar = false
-    }
-  }
-  toggleNavbar() {
-    this.navbarOpened = !this.navbarOpened
-  }
-  //METODS/////////////////////////////////////////
+ 
 }

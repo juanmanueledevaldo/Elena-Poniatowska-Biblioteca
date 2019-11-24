@@ -5,6 +5,8 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
+
 import 
 {
   MDBBootstrapModule,
@@ -42,6 +44,8 @@ import { BookService } from './Service/book.service'
 import { DetailService } from './Service/detail.service'
 import { UserService } from './Service/user.service'
 import { LoanService } from './Service/loan.service'
+import {LoginService} from './Service/login.service'
+
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
 
 
@@ -72,6 +76,9 @@ import { LoanService } from './Service/loan.service'
     FormsModule,
     AppRoutingModule, NgbModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      progressBar: true
+    }),
     
     DropdownModule, DropdownModule.forRoot(),
     CheckboxModule, WavesModule, ButtonsModule, InputsModule, IconsModule, CardsModule
@@ -80,7 +87,9 @@ import { LoanService } from './Service/loan.service'
     BookService,
     DetailService,
     UserService,
-    LoanService
+    LoanService,
+    LoginService,
+
   ],
   bootstrap: [AppComponent]
 })
