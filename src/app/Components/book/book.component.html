@@ -1,4 +1,125 @@
-<div >
+<div class="card bg-light container text-center">
+  <div class="pb-2 mt-4 mb-2 border-bottom">
+    <h1><i class="fa fa-book" aria-hidden="true"></i> Registro de Libro</h1>
+  </div>
+  <article class="card-body mx-auto">
+    <p class="divider-text">
+      <span class="bg-light">Registro</span>
+    </p>
+    <hr>
+    <form [formGroup]="BookForm" (ngSubmit)="onSaveForm()">
+      <!-- Folio y Nombre -->
+      <div class="form-row mb-4">
+        <div class="form-group input-group col md-form ">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="far fa-book"></i> </span>
+          </div>
+          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+        </div>
+        <!-- form-group// -->
+        <div class="form-group input-group col md-form">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <!-- name -->
+          <input type="text" formControlName="Nombre" class="form-control" placeholder="Nombre">
+
+        </div> <!-- form-group// -->
+      </div>
+
+      <!-- Autor y Editorial -->
+      <div class="form-row mb-4">
+        <div class="form-group input-group col md-form ">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="far fa-user"></i> </span>
+          </div>
+          <input type="text" formControlName="Autor" class="form-control" placeholder="Autor">
+        </div>
+        <!-- form-group// -->
+        <div class="form-group input-group col md-form">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <!-- name -->
+          <input type="text" formControlName="Editorial" class="form-control" placeholder="Editorial">
+
+        </div> <!-- form-group// -->
+      </div>
+
+      <!-- Genero y Estante -->
+      <div class="form-row mb-4">
+        <div class="form-group input-group col md-form ">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="far fa-user"></i> </span>
+          </div>
+          <input type="text" formControlName="Genero" class="form-control" placeholder="Genero">
+        </div>
+        <!-- form-group// -->
+        <div class="form-group input-group col md-form">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <!-- name -->
+          <input type="text" formControlName="Estante" class="form-control" placeholder="Estante">
+
+        </div> <!-- form-group// -->
+      </div>
+
+      <!-- Anio y Paginas -->
+      <div class="form-row mb-4">
+        <div class="form-group input-group col md-form ">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="far fa-user"></i> </span>
+          </div>
+          <input type="text" formControlName="Anio" class="form-control" placeholder="Anio">
+        </div>
+        <!-- form-group// -->
+        <div class="form-group input-group col md-form">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <!-- name -->
+          <input type="text" formControlName="Paginas" class="form-control" placeholder="Paginas">
+
+        </div> <!-- form-group// -->
+      </div>
+
+      <!-- Descripcion y Stock -->
+      <div class="form-row mb-4">
+        <div class="form-group input-group col md-form ">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="far fa-user"></i> </span>
+          </div>
+          <input type="text" formControlName="Descripcion" class="form-control" placeholder="Descripcion">
+        </div>
+        <!-- form-group// -->
+        <div class="form-group input-group col md-form">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <!-- name -->
+          <input type="text" formControlName="Stock" class="form-control" placeholder="Stock">
+
+        </div> <!-- form-group// -->
+      </div>
+
+      <!-- Imagen y Borrado -->
+      <br />
+      <hr>
+      <!-- <label>Imagen</label>
+      <input type="file" #image="ngModel" name="image" [(ngModel)]="book.image" class="form-control" />
+
+      <label>Nombre
+        <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+      </label>
+      <input type="text" #nombre="ngModel" name="name" [(ngModel)]="nombre.nombre" class="form-control"
+        placeholder="Ingresa el nombre" required /> -->
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </article>
+</div>
+
+<!-- <div >
 
 <div class="text-center border border-light p-5">
   <div>
@@ -12,38 +133,4 @@
 </div>
 
 
-</div>
-
-
-<form #formBook="ngForm" class="col-lg-6" id="form-book">
-
-  <label>Nombre
-      <span  *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
-    </label>
-  <input type="text" #nombre="ngModel" name="name" [(ngModel)]="nombre.nombre" class="form-control" placeholder="Ingresa el nombre" required/>
-  
-
-  <label>Autor</label>
-  <input type="text" #author="ngModel" name="author" [(ngModel)]="book.author" class="form-control" placeholder="Ingresa el autor"/>
-
-  <label>Genero</label>
-  <input type="text" #gender="ngModel" name="gender" [(ngModel)]="book.gender" class="form-control" placeholder="Ingresa el genero"/>
-
-  <label>Estante</label>
-  <input type="text" #rack="ngModel" name="rack" [(ngModel)]="book.rack" class="form-control" placeholder="Ingresa el estante en el cual se ubica el libro"/>
-
-  <label>Editorial</label>
-  <input type="text" #editorial="ngModel" name="editorial" [(ngModel)]="book.editorial" class="form-control" placeholder="Ingresa la editorial"/>
-
-  <label>Paginas</label>
-  <input type="text" #pages="ngModel" name="pages" [(ngModel)]="book.pages" class="form-control" placeholder="Ingresa el número de paginas del libro"/>
-
-  <label>Stock</label>
-  <input type="text" #stock="ngModel" name="stock" [(ngModel)]="book.stock" class="form-control" placeholder="Ingresa numero de libros disponibles"/>
-
-  <label>Imagen</label>
-  <input type="file" #image="ngModel" name="image" [(ngModel)]="book.image" class="form-control"/>  
-
-  <br/>
-  <button type="submit" class="btn btn-primary">Guardar Libro</button>
-</form>
+</div> -->

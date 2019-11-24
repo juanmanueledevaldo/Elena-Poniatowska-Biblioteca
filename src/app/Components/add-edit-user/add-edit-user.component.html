@@ -1,6 +1,6 @@
 <div class="container text-center">
     <div class="pb-2 mt-4 mb-2 border-bottom">
-        <h1><i class="fa fa-book" aria-hidden="true"></i> Detalle Prestamo</h1>
+        <h1><i class="fa fa-book" aria-hidden="true"></i> Mantenimiento</h1>
     </div>
     <div class="table-wrapper row">
         <div class="col-md-12">
@@ -10,12 +10,17 @@
                         <h2>Mantenimiento <b>Usuarios</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="fa fa-plus"
+                        <!--  href="#addEmployeeModal"-->
+                        <a [routerLink]="['/user/',0]" class="btn btn-success" data-toggle="modal"><i class="fa fa-plus"
                                 aria-hidden="true"></i> <span>Add New User no sive</span></a>
                         <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
                                 class="fa fa-minus-circle" aria-hidden="true"></i><span>Delete No sirve</span></a>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-3">
+                <input type="text" placeholder="Buscar" class="form-control mb-3" name="filterUsers" id="filterUsers"
+                    [(ngModel)]="filterUsers">
             </div>
             <table class="table table-striped table-hover">
                 <thead>
@@ -26,33 +31,34 @@
                                 <label for="selectAll"></label>
                             </span>
                         </th>
-                        <th>Nickname</th>
                         <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Matricula</th>
-                        <th>Numero Telefonico</th>
                         <th>Email</th>
+                        <th>Numero Telefonico</th>
+                        <th>Matricula</th>
+                        <th>Cuatrimestre</th>
                         <th>Carrera</th>
                         <th>Tipo Usuario</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let item of users| users:filterUsers">
                         <td>
                             <span class="custom-checkbox">
                                 <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                 <label for="checkbox1"></label>
                             </span>
                         </td>
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-                        <td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
-                        <td>ksldajds@gmail.com</td>
-                        <td>Tic</td>
-                        <td>admin</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.telefono}}</td>
+                        <td>{{item.matricula}}</td>
+                        <td>{{item.cuatrimestre}}</td>
+                        <td>{{item.carrera}}</td>
+                        <td>{{item.tipo}}</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="far fa-edit"
+                            <!-- href="#editEmployeeModal" -->
+                            <a [routerLink]="['/user/',item.id]" class="edit" data-toggle="modal"><i class="far fa-edit"
                                     tittle="Edit" data-toggle="tooltip"></i></a>
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
                                     class="far fa-trash-alt" title="Edit" data-toggle="tooltip"></i></a>
@@ -100,7 +106,6 @@
                                     data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
-                    
                 </tbody>
             </table>
             <div class="clearfix">

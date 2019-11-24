@@ -44,7 +44,7 @@ export class DetailService {//VAR
   }
   getFolio(detail:IDetail):Observable<IDetail>
   {
-    let requestUrl = `${this._apiUrl}/${detail.Prestamoi}`
+    let requestUrl = `${this._apiUrl}/${detail.prestamoi}`
     return this.http.get<IDetail>(requestUrl).pipe(
       retry(1)
     );

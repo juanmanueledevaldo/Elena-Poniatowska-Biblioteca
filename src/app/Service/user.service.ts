@@ -11,7 +11,7 @@ import { IUser } from '../Model/user'
   providedIn: 'root'
 })
 export class UserService {//VAR
-  private _apiUrl = "http//localhost:59417/api/usuario"
+  private _apiUrl = "https://localhost:44375/api/usuario"
   //VAR/////////////////////////////////////////////////////////////////
   constructor(//LOADSERVICE
     private http: HttpClient
@@ -36,19 +36,20 @@ export class UserService {//VAR
   getAll(): Observable<IUser[]> 
   {
     return this.http.get<IUser[]>(this._apiUrl).pipe(
-      retry(1)
+      catchError(this.handleError)
     )
   }
   get(id:number) : Observable<IUser> 
   {
     let requestUrl = `${this._apiUrl}/${id}`
     return this.http.get<IUser>(requestUrl).pipe(
-      retry(1)
+      
+      catchError(this.handleError)
     )
   }
   update(user:IUser) 
   {
-    let requestUrl = `${this._apiUrl}/${user.Id}`
+    let requestUrl = `${this._apiUrl}/${user.id}`
     return this.http.put(requestUrl,user).pipe(
       catchError(this.handleError)
     )

@@ -1,5 +1,6 @@
 //COMPONENT
 import { Injectable } from '@angular/core'
+import { catchError, retry } from "rxjs/operators"
 import { Observable, throwError } from 'rxjs'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 //COMPONENT///////////////////////////////////////////////////////////////
@@ -13,10 +14,10 @@ export class BookService {//VAR
   private _apiUrl:string ="http://localhost:59417/api/libro"
   //COMPONENT///////////////////////////////////////////////////////////////
   
-  constructor(private http:HttpClient) //LOADPAGE
-  { 
-
-  }//COMPONENT///////////////////////////////////////////////////////////////
+  constructor(
+    private http:HttpClient
+    ) //LOADPAGE
+  { }//COMPONENT///////////////////////////////////////////////////////////////
   
   private handleError(error:HttpErrorResponse)//METODS
   {
@@ -40,6 +41,27 @@ export class BookService {//VAR
     return this.http.get<IBook>(requestUrl).pipe(
 
     )
-  }//METODS///IBOOK////////////////////////////////////////////////////////////
+  }
+  post(book:IBook)
+  {
+    return this.http.post(this._apiUrl,book).pipe(
+      catchError(this.handleError)
+    )
+  }
+  update(book:IBook)
+  {
+    let requestUrl = `${this._apiUrl}/${book.id}`
+    return this.http.put(requestUrl, book).pipe(
+      catchError(this.handleError)
+    )
+  }
+  delete(id:number)
+  {
+    let requestUrl = `${this._apiUrl}/${id}`
+    return this.http.delete(requestUrl).pipe(
+      catchError(this.handleError)
+    )
+  }
+  //METODS///IBOOK////////////////////////////////////////////////////////////
   
 }

@@ -17,7 +17,7 @@ import { IUser } from '../Model/user'
 export class LoanService {//VAR
   //COMPONENT///////////////////////////////////////////////////////////////
   details:IDetail[];
-private _apiUrl ="https://localhost:59417/api/prestamo"
+private _apiUrl ="https://localhost:44375/api/prestamo"
   constructor(//LOASERVICE
     private http:HttpClient
   ) { }//LOADSERVICE///////////////////////////////////////////////////////////////
@@ -43,16 +43,16 @@ private _apiUrl ="https://localhost:59417/api/prestamo"
       retry(1)
     )
   }
-  getFolio(folio:string):Observable<ILoan>
+  getFolio(id:number):Observable<ILoan>
   {
-    let requestUrl =`${this._apiUrl}/${folio}`
+    let requestUrl =`${this._apiUrl}/${id}`
     return this.http.get<ILoan>(requestUrl).pipe(
-      retry(1)
+      catchError(this.handleError)
     )
   }
   update(loan:ILoan)
   {
-    let requestUrl =`${this._apiUrl}/${loan.Id}`
+    let requestUrl =`${this._apiUrl}/${loan.id}`
     return this.http.put(requestUrl,loan).pipe(
       catchError(this.handleError)
     )

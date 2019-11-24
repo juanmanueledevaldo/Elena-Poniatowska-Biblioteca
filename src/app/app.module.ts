@@ -41,7 +41,11 @@ import { LogComponent } from './Components/log/log.component'
 import { BookService } from './Service/book.service'
 import { DetailService } from './Service/detail.service'
 import { UserService } from './Service/user.service'
-import { LoanService } from './Service/loan.service'
+import { LoanService } from './Service/loan.service';
+import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.component';
+import { BooksPipe } from './Pipe/books.pipe';
+import { UsersPipe } from './Pipe/users.pipe';
+import { LoansPipe } from './Pipe/loans.pipe'
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
 
 
@@ -59,7 +63,11 @@ import { LoanService } from './Service/loan.service'
     ErrorComponent,
     DetailbookComponent,
     AddEditUserComponent,
-    LogComponent
+    LogComponent,
+    AddEditLoanComponent,
+    BooksPipe,
+    UsersPipe,
+    LoansPipe
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

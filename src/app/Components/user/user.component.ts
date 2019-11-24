@@ -20,7 +20,8 @@ export class UserComponent implements OnInit {//VAR
 
   @Input('data') UserFormFather: FormGroup
   @Output() OnSaveUser = new EventEmitter<IUser>()
-  user: IUser
+  seeUser: any
+  user: IUser = {id:0,apellido:"",contraseña:"",tipo:"",activo:true,borrado:false,carrera:"",cuatrimestre:"",email:"",grupo:"",matricula:"",mote:"",nombre:"",telefono:""}
   student: IStudent
   UserForm: FormGroup
   //VAR/////////////////////////////////////////
@@ -29,11 +30,14 @@ export class UserComponent implements OnInit {//VAR
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() 
-  {
-    this.UserForm
+  ngOnInit() {
+
+   
+    this.get()
+    this.UserForm = this.CreateFormGroup()
+
   }//LOADPAGE/////////////////////////////////////////
-  
+
   CreateFormGroup()//METODS //ISTUDENT
   {
     return new FormGroup(
@@ -42,10 +46,11 @@ export class UserComponent implements OnInit {//VAR
         Nombre: new FormControl(""),
         Apellido: new FormControl(""),
         Contraseña: new FormControl(""),
+        Repetir: new FormControl(""),
         Tipo: new FormControl(""),
         Matricula: new FormControl(""),
         Telefono: new FormControl(""),
-        Emai: new FormControl(""),
+        Email: new FormControl(""),
         Carrera: new FormControl(""),
         Cuatrimestre: new FormControl(""),
         Grupo: new FormControl("")
@@ -53,60 +58,101 @@ export class UserComponent implements OnInit {//VAR
       }
     )
   }
-  onResetForm() 
+  get()//IUser
   {
+    this.route.params.subscribe(
+      paramsUser => {
+        this.seeUser = +paramsUser["id"]
+        if (this.seeUser) {
+          this._userService.get(this.seeUser).subscribe(
+            getUser => {
+              this.user = getUser
+              this.UserForm.controls["Mote"].setValue(this.user.mote)
+              this.UserForm.controls["Mote"].setValue(this.user.nombre)
+              this.UserForm.controls["Apellido"].setValue(this.user.apellido)
+              this.UserForm.controls["Contraseña"].setValue(this.user.contraseña)
+              this.UserForm.controls["Tipo"].setValue(this.user.tipo)
+              this.UserForm.controls["Matricula"].setValue(this.user.matricula)
+              this.UserForm.controls["Telefono"].setValue(this.user.telefono)
+              this.UserForm.controls["Email"].setValue(this.user.email)
+              this.UserForm.controls["Carrera"].setValue(this.user.carrera)
+              this.UserForm.controls["Cuatrimestre"].setValue(this.user.cuatrimestre)
+              this.UserForm.controls["Grupo"].setValue(this.user.grupo)
+              Swal.fire(
+                {
+                  title: "Andamos al tiro con el usuario",
+                  text:`${this.user.mote}`
+                }
+              )
+            },
+            error => {
+              Swal.fire(
+                {
+                  title: "Päso una wea, revisalo"
+                }
+              )
+            }
+          )
+        }
+        else {
+          Swal.fire(
+            {
+              title: "Hay un conflicto con traer el usauario"
+            }
+          )
+        }
+      }
+    )
+  }
+  onResetForm() {
     this.UserForm.reset()
   }
-  onSaveForm() 
-  {
-    this.student.Mote = this.UserForm.get("Mote").value
-    this.student.Nombre = this.UserForm.get("Nombre").value
-    this.student.Apellido = this.UserForm.get("Apellido").value
-    this.student.Tipo = this.UserForm.get("Tipo").value
-    this.student.Matricula = this.UserForm.get("Matricula").value
-    this.student.Telefono = this.UserForm.get("Telefono").value
-    this.student.Email = this.UserForm.get("Matricula").value
-    this.student.Carrera = this.UserForm.get("Carrera").value
-    this.student.Grupo = this.UserForm.get("Grupo").value
-    this.student.Borrado = false
-    this.student.Activo = true
-    if (this.student.Id != null) {
-      this._userService.update(this.student).subscribe(
-        data => {
-          Swal.fire(
-            {
-              title:"Actualizado"
-            }
-          )
-        }, error => {
-          Swal.fire(
-            {
-              title:"Valio kabezuki act"
-            }
+  onSaveForm() {
+    if (this.UserForm.valid) {
+      if (this.UserForm.get("Contraseña").value == this.UserForm.get("Repetir").value) {
+        this.user.mote = this.UserForm.get("Mote").value
+        this.user.nombre = this.UserForm.get("Nombre").value
+        this.user.apellido = this.UserForm.get("Apellido").value
+        this.user.matricula = this.UserForm.get("Matricula").value
+        this.user.telefono = this.UserForm.get("Telefono").value
+        this.user.email = this.UserForm.get("Matricula").value
+        this.user.carrera = ""
+        this.user.tipo = ""
+        this.user.grupo = ""
+        this.user.borrado = false
+        this.user.activo = true
+        console.log(this.user);
+        
+        if (this.user.id != null && this.user.id!=0) {
+          this._userService.update(this.user).subscribe(
+            data => Swal.fire({title: "Actualizado"}), 
+            error => Swal.fire({title: "Valio kabezuki act"})
           )
         }
-      );
-    }
-    else {
-      this._userService.post(this.user).subscribe(
-        data => {
-          Swal.fire(
-            {
-              text:"Creado"
-            }
-          )
-        },
-        error => {
-          Swal.fire(
-            {
-              title:"Valio kabezuki"
-            }
+        else {
+          this._userService.post(this.user).subscribe(
+            data => Swal.fire({text: "Creado"}),
+            error => Swal.fire({title: "Valio kabezuki"})
           )
         }
-      )
+        this.onResetForm()
+      }
+      else 
+      Swal.fire({title:"Las contraseñas no coinciden"})
     }
-    this.onResetForm()
-  }//METODS//ISTUDENT/////////////////////////////////////////
+    else 
+    Swal.fire({title:"Los datos enviados en el formularios son invalidos"})
+  }
+  get mote() { return this.UserForm.get("Mote") }
+  get nombre() { return this.UserForm.get("Nombre") }
+  get apellido() { return this.UserForm.get("Apellido") }
+  get contraseña() { return this.UserForm.get("Contraseña") }
+  get repetir() { return this.UserForm.get("Repetir") }
+  get matricula() { return this.UserForm.get("Matricula") }
+  get telefono() { return this.UserForm.get("Telefono") }
+  get email() { return this.UserForm.get("Email") }
+  get carrera() { return this.UserForm.get("Carrera") }
+  //METODS//ISTUDENT/////////////////////////////////////////
 
 }
 
