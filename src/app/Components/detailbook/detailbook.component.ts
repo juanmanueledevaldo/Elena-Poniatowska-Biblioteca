@@ -21,6 +21,7 @@ export class DetailbookComponent implements OnInit {//VAR
 
   book: IBook
   detail: IDetail
+  id:any;
   ///VAR////////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _detailService: DetailService,
@@ -32,11 +33,12 @@ export class DetailbookComponent implements OnInit {//VAR
   }///LOADPAGE////////////////////////////////////////////////////////
   get()//METODS///IBOOK
   {
+    debugger;
     this.route.params.subscribe(
       paramsBook => {
-        this.book.Id = paramsBook["id"]
-        if (this.book.Id) {
-          this._bookService.get(this.book.Id).subscribe(
+        this.id = paramsBook["id"]
+        if (this.id) {
+          this._bookService.get(this.id).subscribe(
             book => {
               this.book = book;
               Swal.fire(
