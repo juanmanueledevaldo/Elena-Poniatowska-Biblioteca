@@ -17,7 +17,7 @@ import { IUser } from '../Model/user'
 export class LoanService {//VAR
   //COMPONENT///////////////////////////////////////////////////////////////
   details:IDetail[];
-private _apiUrl ="https://localhost:44375/api/prestamo"
+private _apiUrl ="https://localhost:59417/api/prestamo"
   constructor(//LOASERVICE
     private http:HttpClient
   ) { }//LOADSERVICE///////////////////////////////////////////////////////////////
