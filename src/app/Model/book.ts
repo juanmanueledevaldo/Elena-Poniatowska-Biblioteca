@@ -1,17 +1,17 @@
 
 export interface IBook 
 {
-    Id:number
-    Folio:string
-    Nombre:string
-    Autor:string
-    Genero:string
-    Estante:string
+    id:number
+    folio:string
+    nombre:string
+    autor:string
+    genero:string
+    estante:string
     anio:string;
-    Editorial:string
-    Paginas:number
-    Borrado:boolean
-    Stock:number
-    Imagen:string
+    editorial:string
+    paginas:number
+    borrado:boolean
+    stock:number
+    imagen:string
     descripcion:string
 }

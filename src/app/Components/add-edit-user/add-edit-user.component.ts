@@ -21,6 +21,7 @@ import { IUser } from 'src/app/Model/user'
 export class AddEditUserComponent implements OnInit {//VAR
 users:IUser[]
 user:IUser
+filterUsers=""
 //VAR//////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _userService:UserService,
@@ -38,6 +39,13 @@ user:IUser
             title:"Lista cargada correctamente"
           }
         )
+      },
+      error => {
+        Swal.fire(
+          {
+            title:"nel"
+          }
+        )
       }
     )
   }//IUSER[]//////////////////////////////////////////////////////
@@ -47,7 +55,7 @@ user:IUser
         this.user = user
         Swal.fire(
           {
-            title:`Se ha seleccionado ${this.user.Mote}`
+            title:`Se ha seleccionado ${this.user.mote}`
           }
         )
       }

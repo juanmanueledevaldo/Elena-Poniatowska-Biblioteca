@@ -1,14 +1,17 @@
-
+<div class="col-md-3">
+  <input type="text" placeholder="Buscar" class="form-control mb-3" name="filterBooks" id="filterBooks"
+    [(ngModel)]="filterBooks">
+</div>
 <hr>
-<div class="row" >
-  <div class="col-lg-3" *ngFor="let item of bookList">
-      <div class="card pt-3" style="width: 18rem;">
-          <img class="card-img-top "src="{{item.imagen}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{item.nombre}}</h5>
-            <p class="card-text">By: {{item.autor}}</p>
-            <a [routerLink]="[ '/libro/',item.id ]" class="btn btn-outline-success">Ver Detalles</a>
-          </div>
-        </div>
+<div class="row">
+  <div class="col-lg-3" *ngFor="let item of books| books:filterBooks;">
+    <div class="card pt-3" style="width: 18rem;">
+      <img class="card-img-top " src="{{item.imagen}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.nombre}}</h5>
+        <p class="card-text">By: {{item.autor}}</p>
+        <a [routerLink]="[ '/detail/',item.id ]" class="btn btn-outline-success">Ver Detalles</a>
+      </div>
+    </div>
   </div>
 </div>

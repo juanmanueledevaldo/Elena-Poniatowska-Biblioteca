@@ -1,13 +1,13 @@
 import { IDetail } from './detail'
 import { IUser } from './user'
 export interface ILoan {
-    Id:number
-    Folio:string
-    Fecha:string
-    Devolucion:string
-    Estado:string
-    Usuarioi:number
-    Usuario:IUser
-    Detalle:IDetail[]
+    id:number
+    folio:string
+    fecha:string
+    devolucion:string
+    estado:string
+    usuarioi:number
+    usuario:IUser
+    detalle:IDetail[]
 }
 

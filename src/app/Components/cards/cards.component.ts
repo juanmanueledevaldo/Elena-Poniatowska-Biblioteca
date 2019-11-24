@@ -1,6 +1,5 @@
 //COMPONENT
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
 import Swal from "sweetalert2"
 //COMPONENT////////////////////////////////////////////////////////////
 //INTERFACE
@@ -18,8 +17,8 @@ import { BookService } from 'src/app/Service/book.service'
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {//VAR
-  filter = ""
-  public bookList: IBook[] = []
+  filterBooks = ""
+  public books: IBook[] = []
   //VAR////////////////////////////////////////////
   constructor(//LOADPAGE
     private _bookService: BookService
@@ -29,8 +28,8 @@ export class CardsComponent implements OnInit {//VAR
   }//LOADPAGE////////////////////////////////////////////
   gets(){//METODS///IBOOK[]
     this._bookService.getAll().subscribe(
-      books => {
-        this.bookList = books
+      bookList => {
+        this.books = bookList
         Swal.fire(
           {
             title:"Libros cargados correctamente"
@@ -38,11 +37,14 @@ export class CardsComponent implements OnInit {//VAR
         )
       },
       error => {
-
+        Swal.fire(
+          {
+            title:"valio kabesuki"
+          }
+        )
       }
-    );
+    )
   }
-  
   //METODS////////////////////////////////////////////
   
 }

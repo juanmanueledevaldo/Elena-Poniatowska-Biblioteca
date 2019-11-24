@@ -22,8 +22,9 @@ export class LoanComponent implements OnInit {//VAR
 
   @Input('data') LoanFormm: FormGroup;
   @Output() OnSaveLoan = new EventEmitter<ILoan>()
-  loan: ILoan = { Id: 0, Folio: "", Detalle: null, Devolucion: "", Estado: "", Fecha: "", Usuario: null, Usuarioi: 0 }
+  loan: ILoan = { id: 0, folio: "", detalle: null, devolucion: "", estado: "", fecha: "", usuario: null, usuarioi: 0 }
   LoanForm: FormGroup
+  seeLoan: any
   public detailList: IDetail[] = []
   //VAR//////////////////////////////////////////
   constructor(//LOADPAGE
@@ -34,31 +35,55 @@ export class LoanComponent implements OnInit {//VAR
 
   ngOnInit() {
     this.LoanForm = this.CreateFormGroup();
+    this.get()
+    this.getDetails()
+  }//LOADPAGE//////////////////////////////////////////
+  //METODS
+  get() {
     this.route.params.subscribe(
       params => {
-        this.loan.Id = params["id"];
-        if (this.loan.Id != null) {
-          this._loanService.getFolio(this.loan.Folio).subscribe(
-            data => {
-              this.loan = data
-              this.LoanForm.controls["Folio"].setValue(this.loan.Folio)
-              this.LoanForm.controls["Fecha"].setValue(this.loan.Fecha)
-              this.LoanForm.controls["Devolucion"].setValue(this.loan.Devolucion)
-              this.LoanForm.controls["Estado"].setValue(this.loan.Estado)
+        this.seeLoan = +params["id"];
+        if (this.seeLoan != null ) {
+          this._loanService.getFolio(this.seeLoan).subscribe(
+            getLoan => {
+              this.loan = getLoan
+              this.LoanForm.controls["Folio"].setValue(this.loan.folio)
+              this.LoanForm.controls["Fecha"].setValue(this.loan.fecha)
+              this.LoanForm.controls["Devolucion"].setValue(this.loan.devolucion)
+              this.LoanForm.controls["Estado"].setValue(this.loan.estado)
             },
             error => {
-              
+              Swal.fire(
+                {
+                  title: "Valio kabezuki el get de loan"
+                }
+              )
             }
           )
         }
+        else {
+          Swal.fire({ title: "Error con algo" })
+        }
       },
       error => {
-        console.log(error)
+        Swal.fire(
+          {
+            title: "errro con el params de loan"
+          }
+        )
       }
     )//subscribeParams
-    this.getList()
-  }//LOADPAGE//////////////////////////////////////////
-  //METODS
+  }
+  getDetails() {
+    this._detailService.getAll().subscribe(
+      details => {
+        this.detailList = details
+      },
+      error => {
+        console.log(error.error.message)
+      }
+    )
+  }
   CreateFormGroup()//LOANFORM///ILOAN
   {
     return new FormGroup(
@@ -70,21 +95,18 @@ export class LoanComponent implements OnInit {//VAR
       }
     )
   }
-  onResetForm() 
-  {
+  onResetForm() {
     this.LoanForm.reset()
   }
-  onSaveForm() 
-  {
+  onSaveForm() {
     if (this.LoanForm.valid) {
-      this.loan.Id = 0
-      this.loan.Folio = this.LoanForm.get("Folio").value
-      this.loan.Fecha = this.LoanForm.get("Fecha").value
-      this.loan.Devolucion = this.LoanForm.get("Devolucion").value
-      this.loan.Estado = this.LoanForm.get("Estado").value
-      this.loan.Usuarioi = 1
+      this.loan.folio = this.LoanForm.get("Folio").value
+      this.loan.fecha = this.LoanForm.get("Fecha").value
+      this.loan.devolucion = this.LoanForm.get("Devolucion").value
+      this.loan.estado = this.LoanForm.get("Estado").value
+      this.loan.usuarioi = 1
 
-      if (this.loan.Id != null && this.loan.Id !=0) {
+      if (this.loan.id != null && this.loan.id != 0) {
         this._loanService.update(this.loan).subscribe(
           data => {
             Swal.fire(
@@ -107,6 +129,7 @@ export class LoanComponent implements OnInit {//VAR
         )
       }
       else {
+        
         this._loanService.postLoan(this.loan).subscribe(
           data => {
             Swal.fire(
@@ -134,42 +157,23 @@ export class LoanComponent implements OnInit {//VAR
       this.onResetForm()
     }
   }//ILOAN///LOANFORM//////////////////////////////////////////
-  getList() {
-    this._detailService.getAll().subscribe(
-      details => {
-        this.detailList = details
-     
-      },
-      error => {
-        console.log(error.error.message)
-      }
-    )
-  }
-  deleteItem(id: number) {
+  deleteItem(id: any) {
     this._detailService.delete(id).subscribe(
-      data =>{
+      data => {
         location.reload()
         Swal.fire(
           {
-            title:"Eliminado",
-            text:"Holap"
+            title: "Eliminado",
+            text: "Holap"
           }
         )
-      } 
+      }
     )
   }
-  get folio() {
-    return this.LoanForm.get("Folio")
-  }
-  get estado() {
-    return this.LoanForm.get("Estado")
-  }
-  get fecha() {
-    return this.LoanForm.get("Fecha")
-  }
-  get devolucion() {
-    return this.LoanForm.get("Devolucion")
-  }
+  get folio() { return this.LoanForm.get("Folio") }
+  get estado() { return this.LoanForm.get("Estado") }
+  get fecha() { return this.LoanForm.get("Fecha") }
+  get devolucion() { return this.LoanForm.get("Devolucion") }
   //METODS//////////////////////////////////////////
 
 }

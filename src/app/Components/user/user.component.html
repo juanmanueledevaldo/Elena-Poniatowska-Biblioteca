@@ -2,21 +2,20 @@
 <!-- Default form register -->
 <div class="card bg-light container text-center">
   <div class="pb-2 mt-4 mb-2 border-bottom">
-    <h1><i class="fa fa-book" aria-hidden="true"></i> Detalle Prestamo</h1>
+    <h1><i class="fa fa-user" aria-hidden="true"></i> Usuario</h1>
   </div>
   <article class="card-body mx-auto">
     <p class="divider-text">
       <span class="bg-light">Registro</span>
     </p>
-    <hr>
-    <form [formGroup]="UserForm" ngsub>
+    <hr>    
+    <form [formGroup]="UserForm" (ngSubmit)="onSaveForm()">
       <div class="form-row mb-4">
         <div class="form-group input-group col md-form ">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
-
+          <input type="text" [value]="Mote" formControlName="Mote" class="form-control" placeholder="Usuario">
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -24,7 +23,7 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+          <input type="text" formControlName="Nombre" class="form-control" placeholder="Nombre">
 
         </div> <!-- form-group// -->
       </div>
@@ -33,10 +32,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <!-- name -->
-          <!-- lastname -->
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
-
+          <!-- last name -->
+          <input type="text" formControlName="Apellido" class="form-control" placeholder="Apellido">
         </div> <!-- form-group// -->
         <div class="form-group input-group col md-form">
           <div class="input-group-prepend">
@@ -45,24 +42,23 @@
           <!-- name -->
 
           <!-- Matricula -->
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+          <input type="text" formControlName="Matricula" class="form-control" placeholder="Matricula">
 
         </div> <!-- form-group// -->
       </div>
-
       <div class="form-row mb-4">
         <div class="form-group input-group col md-form">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
           </div>
-          <input type="email" formControlName="Folio" class="form-control" placeholder="Folio">
+          <input type="email" formControlName="Email" class="form-control" placeholder="Email">
 
         </div> <!-- form-group// -->
         <div class="form-group input-group col md-form">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
           </div>
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+          <input type="text" formControlName="Telefono" class="form-control" placeholder="Telefono">
         </div> <!-- form-group// -->
       </div>
 
@@ -74,12 +70,12 @@
           <select class="custom-select ">
             <option selected="">Seleccione la carrera</option>
             <option value="1">TIC</option>
-            <option value="2">Procesos Industriales</option>
-            <option value="3">Mercadotecnia</option>
-            <option value="4">Mecatronica</option>
-            <option value="5">Posventa Automotriz</option>
-            <option value="6">Mantenimiento Industrial</option>
-            <option value="7">Aeronautica</option>
+            <option value="2">PI</option>
+            <option value="3">MKT</option>
+            <option value="4">MA</option>
+            <option value="5">SPA</option>
+            <option value="6">MI</option>
+            <option value="7">MAMP</option>
           </select>
         </div> <!-- form-group end.// -->
         
@@ -91,14 +87,14 @@
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
               </div>
               <!-- Contraseña -->
-              <input type="password" formControlName="Folio" class="form-control" class="form-control"
+              <input type="password" formControlName="Contraseña" class="form-control" class="form-control"
                 placeholder="Contraseña">
             </div> <!-- form-group// -->
           <div class="form-group input-group col md-form">
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" formControlName="Folio" class="form-control" placeholder="Repite la contraseña"
+            <input class="form-control" formControlName="Repetir" class="form-control" placeholder="Repetir la contraseña"
               type="password">
           </div> <!-- form-group// -->
       </div>

@@ -14,21 +14,24 @@ import { LogComponent } from './Components/log/log.component'
 //MODULE
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.component'
 //MODULE/////////////////////////////////////////////////////////
 
 
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'loans', component: AddEditLoanComponent },
   { path: 'cards', component: CardsComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'loan/:id', component: LoanComponent },
+  { path: 'mantenimiento', component: AddEditUserComponent },
   { path: 'user', component: UserComponent },
+  { path: 'user/:id', component: UserComponent },
   { path: 'book', component: BookComponent },
-  { path: 'addbook', component: BookComponent },
-  { path: 'usermaintenance', component: AddEditUserComponent },
-  { path: 'libro/:id', component: DetailbookComponent },
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'book/:id', component: BookComponent },
+  { path: 'detail/:id', component: DetailbookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'log', component: LogComponent },
   { path: '**', component: ErrorComponent },

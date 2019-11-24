@@ -21,7 +21,7 @@ export class DetailbookComponent implements OnInit {//VAR
 
   book: IBook
   detail: IDetail
-  id:any;
+  seeBook:any;
   ///VAR////////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _detailService: DetailService,
@@ -33,22 +33,25 @@ export class DetailbookComponent implements OnInit {//VAR
   }///LOADPAGE////////////////////////////////////////////////////////
   get()//METODS///IBOOK
   {
-    debugger;
     this.route.params.subscribe(
       paramsBook => {
-        this.id = paramsBook["id"]
-        if (this.id) {
-          this._bookService.get(this.id).subscribe(
-            book => {
-              this.book = book;
+        this.seeBook = paramsBook["id"]
+        if (this.seeBook) {
+          this._bookService.get(this.seeBook).subscribe(
+            getBook => {
+              this.book = getBook;
               Swal.fire(
                 {
-                  title: `Has elegido ${this.book.Nombre}`
+                  title: `Has elegido ${this.book.nombre}`
                 }
               )
             },
             error => {
-              console.log(error)
+              Swal.fire(
+                {
+                  title:"Valio kabezuki el get del libro"
+                }
+              )
             }
           )
         } else
@@ -60,7 +63,7 @@ export class DetailbookComponent implements OnInit {//VAR
     )
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
-    this.detail.Libroi = this.book.Id;
+    this.detail.libroi = this.book.id;
     this._detailService.post(this.detail).subscribe(
       res => {
         Swal.fire(
