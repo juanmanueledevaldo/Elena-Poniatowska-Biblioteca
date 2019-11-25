@@ -26,6 +26,10 @@ body {
 
 #sticky-footer {
   flex-shrink: none;
+  width: 100%;
+}
+footer {
+  margin-top: 0px;
 }
 
 /* Other Classes for Page Styling */
