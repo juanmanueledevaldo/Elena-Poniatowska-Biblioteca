@@ -1,7 +1,7 @@
 //MODULE
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -38,6 +38,7 @@ import { ErrorComponent } from './Errors/error/error.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
 import { LogComponent } from './Components/log/log.component'
+import { AuthInterceptor } from './Components/auth/auth.interceptor';
 //COMPONENT//////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service'
@@ -95,9 +96,11 @@ import {LoginService} from './Service/login.service'
     DetailService,
     UserService,
     LoanService,
-    LoginService
-
-  ],
+    LoginService,{
+      provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
