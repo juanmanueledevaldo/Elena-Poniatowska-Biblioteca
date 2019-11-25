@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
  login: ILogin
  loginform: FormGroup;
  isSubmitted  =  false;
-
+ Motecr : string;
+ Contraseñacr : string;
 
   constructor(private _LoginService: LoginService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder) { }
   CreateFormGroup()//METODS //ISTUDENT
@@ -38,6 +39,8 @@ export class LoginComponent implements OnInit {
   
   ngOnInit() {
    
+    this.login.Mote = this.Motecr;
+    this.login.Contraseña = this.Contraseñacr;
     this.loginform  =  this.formBuilder.group({
       Mote: ['', Validators.required],
       Contraseña: ['', Validators.required]
