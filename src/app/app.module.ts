@@ -48,6 +48,7 @@ import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.c
 import { BooksPipe } from './Pipe/books.pipe';
 import { UsersPipe } from './Pipe/users.pipe';
 import { LoansPipe } from './Pipe/loans.pipe'
+import {LoginService} from './Service/login.service'
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
 
 
@@ -94,7 +95,7 @@ import { LoansPipe } from './Pipe/loans.pipe'
     DetailService,
     UserService,
     LoanService,
-    LoginService,
+    LoginService
 
   ],
   bootstrap: [AppComponent]
