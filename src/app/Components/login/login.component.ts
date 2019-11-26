@@ -20,11 +20,10 @@ import { LoginService } from 'src/app/Service/login.service';
 })
 export class LoginComponent implements OnInit {
 
- login: ILogin
- loginform: FormGroup;
+ login: ILogin ={Mote:"",Contraseña:""}
+ loginForm: FormGroup;
  isSubmitted  =  false;
- Motecr : string;
- Contraseñacr : string;
+
 
   constructor(private _LoginService: LoginService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder) { }
   CreateFormGroup()//METODS //ISTUDENT
@@ -32,29 +31,31 @@ export class LoginComponent implements OnInit {
     return new FormGroup(
       {
         Mote : new FormControl(),
-      Contraseña : new FormControl()
+      Contrasenia : new FormControl()
       }
     )
   }
   
   ngOnInit() {
    
-    this.login.Mote = this.Motecr;
-    this.login.Contraseña = this.Contraseñacr;
-    this.loginform  =  this.formBuilder.group({
-      Mote: ['', Validators.required],
-      Contraseña: ['', Validators.required]
-  });
-    if (localStorage.getItem('token') != null)
-    this.router.navigateByUrl('/home');
+    this.loginForm = this.CreateFormGroup();
+  //   this.loginform  =  this.formBuilder.group({
+  //     Mote: ['', Validators.required],
+  //     Contraseña: ['', Validators.required]
+  // });
+    // if (localStorage.getItem('token') != null)
+    // this.router.navigateByUrl('/home');
   }
   onSubmit(loginForm: FormGroup) {
-    console.log(this.loginform.value);
+    debugger;
+   
+    console.log(this.loginForm.value);
     this.isSubmitted =true;
-    if(this.loginform.invalid){
+    if(this.loginForm.invalid){
       return;
     }
-    this._LoginService.login(loginForm.value).subscribe(
+    debugger;
+    this._LoginService.login(this.loginForm.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
         this.router.navigateByUrl('/home');
@@ -67,5 +68,5 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  get formControls() { return this.loginform.controls; }
+  get formControls() { return this.loginForm.controls; }
 }
