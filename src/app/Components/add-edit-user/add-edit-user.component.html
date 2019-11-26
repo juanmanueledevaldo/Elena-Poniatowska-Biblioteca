@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of users| users:filterUsers">
+                    <tr *ngFor="let item of users ">
                         <td>
                             <span class="custom-checkbox">
                                 <input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -102,8 +102,8 @@
                         <td>
                             <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
                                     data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
-                                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
+                                    data-toggle="#deleteEmployeeModal" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
                 </tbody>

@@ -15,7 +15,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" [value]="Mote" formControlName="Mote" class="form-control" placeholder="Usuario">
+          <input type="text" formControlName="Mote" class="form-control" placeholder="Usuario">
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -67,7 +67,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fas fa-university"></i> </span>
           </div>
-          <select class="custom-select ">
+          <select formControlName="Carrera"  class="custom-select" >
             <option selected="">Seleccione la carrera</option>
             <option value="1">TIC</option>
             <option value="2">PI</option>

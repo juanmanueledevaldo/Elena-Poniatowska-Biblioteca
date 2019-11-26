@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {//VAR
   @Input('data') UserFormFather: FormGroup
   @Output() OnSaveUser = new EventEmitter<IUser>()
   seeUser: any
-  user: IUser = {id:0,apellido:"",contraseña:"",tipo:"",activo:true,borrado:false,carrera:"",cuatrimestre:"",email:"",grupo:"",matricula:"",mote:"",nombre:"",telefono:""}
+  user: IUser = {id:0,apellido:"",contrasenia:"",tipo:"",activo:true,borrado:false,carrera:"",cuatrimestre:"",email:"",grupo:"",matricula:"",mote:"",nombre:"",telefono:""}
   student: IStudent
   UserForm: FormGroup
   //VAR/////////////////////////////////////////
@@ -70,7 +70,7 @@ export class UserComponent implements OnInit {//VAR
               this.UserForm.controls["Mote"].setValue(this.user.mote)
               this.UserForm.controls["Mote"].setValue(this.user.nombre)
               this.UserForm.controls["Apellido"].setValue(this.user.apellido)
-              this.UserForm.controls["Contraseña"].setValue(this.user.contraseña)
+              this.UserForm.controls["Contraseña"].setValue(this.user.contrasenia)
               this.UserForm.controls["Tipo"].setValue(this.user.tipo)
               this.UserForm.controls["Matricula"].setValue(this.user.matricula)
               this.UserForm.controls["Telefono"].setValue(this.user.telefono)
@@ -116,9 +116,10 @@ export class UserComponent implements OnInit {//VAR
         this.user.matricula = this.UserForm.get("Matricula").value
         this.user.telefono = this.UserForm.get("Telefono").value
         this.user.email = this.UserForm.get("Matricula").value
-        this.user.carrera = ""
+        this.user.carrera = this.UserForm.get("Carrera").value[0]
+        this.user.contrasenia =  this.UserForm.get("Contraseña").value
         this.user.tipo = ""
-        this.user.grupo = ""
+        this.user.grupo = "1"
         this.user.borrado = false
         this.user.activo = true
         console.log(this.user);
