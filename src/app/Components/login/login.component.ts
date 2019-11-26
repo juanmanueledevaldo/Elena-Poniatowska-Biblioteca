@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     // this.router.navigateByUrl('/home');
   }
   onSubmit(loginForm: FormGroup) {
-    debugger;
+   
    
     console.log(this.loginForm.value);
     this.isSubmitted =true;

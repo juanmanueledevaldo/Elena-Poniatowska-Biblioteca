@@ -21,6 +21,6 @@ export class LoginService {
   }
 
   getUserProfile() {
-    return this.http.get(this.BaseURI + '/UserProfile');
+    return this.http.get(this.BaseURI + '/userProfile');
   }
 }
