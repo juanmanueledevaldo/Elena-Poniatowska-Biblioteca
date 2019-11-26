@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     debugger;
-    this._LoginService.login(this.login).subscribe(
+    this._LoginService.login(this.loginForm.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
         this.router.navigateByUrl('/home');
