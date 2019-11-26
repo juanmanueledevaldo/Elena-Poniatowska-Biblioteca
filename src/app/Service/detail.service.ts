@@ -14,7 +14,7 @@ import { IBook } from 'src/app/Model/book'
   providedIn: 'root'
 })
 export class DetailService {//VAR
-  private _apiUrl:string= "http://localhost:59417/api/detalle"
+  private _apiUrl:string= "https://localhost:44375/api/detalles"
   detail:IDetail
   //VAR////////////////////////////////////////////////////////////////////
   constructor(private http:HttpClient) //LOADPAGE
