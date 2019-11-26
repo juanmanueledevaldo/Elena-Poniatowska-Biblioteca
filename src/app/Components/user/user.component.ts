@@ -115,11 +115,13 @@ export class UserComponent implements OnInit {//VAR
         this.user.apellido = this.UserForm.get("Apellido").value
         this.user.matricula = this.UserForm.get("Matricula").value
         this.user.telefono = this.UserForm.get("Telefono").value
-        this.user.email = this.UserForm.get("Matricula").value
+        this.user.email = this.UserForm.get("Email").value
         this.user.carrera = this.UserForm.get("Carrera").value[0]
         this.user.contrasenia =  this.UserForm.get("Contraseña").value
+        this.user.cuatrimestre =  this.UserForm.get("Cuatrimestre").value
         this.user.tipo = ""
-        this.user.grupo = "1"
+        this.user.grupo ="A"
+
         this.user.borrado = false
         this.user.activo = true
         console.log(this.user);
