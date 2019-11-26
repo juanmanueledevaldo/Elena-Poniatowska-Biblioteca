@@ -11,7 +11,7 @@ import { IBook } from '../Model/book'
   providedIn: 'root'
 })
 export class BookService {//VAR
-  private _apiUrl:string ="http://localhost:59417/api/libro"
+  private _apiUrl:string ="https://localhost:44375/api/libro"
   //COMPONENT///////////////////////////////////////////////////////////////
   
   constructor(
