@@ -7,14 +7,15 @@
       <span class="bg-light">Registro</span>
     </p>
     <hr>
-    <form [formGroup]="BookForm" (ngSubmit)="onSaveForm()">
+    <form [formGroup]="BookForm" #FormBook="ngForm" (ngSubmit)="onSaveForm()">
       <!-- Folio y Nombre -->
       <div class="form-row mb-4">
         <div class="form-group input-group col md-form ">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-book"></i> </span>
           </div>
-          <input type="text" formControlName="Folio" class="form-control" placeholder="Folio">
+          <div><span *ngIf="!folio.valid && folio.touched" class="label label-danger">El folio es obligatorio</span></div>
+         <input type="text" formControlName="Folio" class="form-control" required placeholder="Folio">
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -22,7 +23,8 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Nombre" class="form-control" placeholder="Nombre">
+          <div><span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span></div>
+          <input type="text" formControlName="Nombre" class="form-control" required placeholder="Nombre">
 
         </div> <!-- form-group// -->
       </div>
@@ -33,7 +35,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" formControlName="Autor" class="form-control" placeholder="Autor">
+          <div><span *ngIf="!autor.valid && autor.touched" class="label label-danger">El autor es obligatorio</span></div>
+          <input type="text" formControlName="Autor" class="form-control" placeholder="Autor" required>
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -41,7 +44,8 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Editorial" class="form-control" placeholder="Editorial">
+          <div><span *ngIf="!editorial.valid && editorial.touched" class="label label-danger">La editorial es obligatoria</span></div>
+          <input type="text" formControlName="Editorial" class="form-control" placeholder="Editorial" required>
 
         </div> <!-- form-group// -->
       </div>
@@ -52,7 +56,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" formControlName="Genero" class="form-control" placeholder="Genero">
+          <div><span *ngIf="!genero.valid && genero.touched" class="label label-danger">El genero es obligatorio</span></div>
+          <input type="text" formControlName="Genero" class="form-control" placeholder="Genero" required>
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -60,7 +65,8 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Estante" class="form-control" placeholder="Estante">
+          <div><span *ngIf="!estante.valid && estante.touched" class="label label-danger">El estante es obligatorio</span></div>
+          <input type="text" formControlName="Estante" class="form-control" placeholder="Estante" required>
 
         </div> <!-- form-group// -->
       </div>
@@ -71,7 +77,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" formControlName="Anio" class="form-control" placeholder="Año">
+          <div><span *ngIf="!anio.valid && anio.touched" class="label label-danger">El año es obligatorio</span></div>
+          <input type="text" formControlName="Anio" class="form-control" placeholder="Año" required pattern="[0-999]+"/>
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -79,7 +86,8 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Paginas" class="form-control" placeholder="Paginas">
+          <div><span *ngIf="!paginas.valid && paginas.touched" class="label label-danger">Las páginas son obligatorias</span></div>
+          <input type="text" formControlName="Paginas" class="form-control" placeholder="Paginas" required pattern="[0-999]+"/>
 
         </div> <!-- form-group// -->
       </div>
@@ -90,7 +98,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="far fa-user"></i> </span>
           </div>
-          <input type="text" formControlName="Descripcion" class="form-control" placeholder="Descripcion">
+          <div><span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripción es obligatoria</span></div>
+          <input type="text" formControlName="Descripcion" class="form-control" placeholder="Descripcion" required>
         </div>
         <!-- form-group// -->
         <div class="form-group input-group col md-form">
@@ -98,10 +107,18 @@
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
           <!-- name -->
-          <input type="text" formControlName="Stock" class="form-control" placeholder="Stock">
+          <div><span *ngIf="!stock.valid && stock.touched" class="label label-danger">El stock es obligatorio</span></div>
+          <input type="text" formControlName="Stock" class="form-control" placeholder="Stock" required pattern="[0-999]+"/>
 
         </div> <!-- form-group// -->
       </div>
+
+
+      <div *ngIf="is_edit">
+        <img src="" width="60"/>
+      </div>
+      <input type="file" class="form-control"/>
+
 
       <!-- Imagen y Borrado -->
       <br />
@@ -114,7 +131,7 @@
       </label>
       <input type="text" #nombre="ngModel" name="name" [(ngModel)]="nombre.nombre" class="form-control"
         placeholder="Ingresa el nombre" required /> -->
-      <button type="submit" class="btn btn-primary">Guardar</button>
+      <button type="submit" [disabled]="!FormBook.form.valid" class="btn btn-primary">Guardar Libro</button>
     </form>
   </article>
 </div>
