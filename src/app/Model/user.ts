@@ -3,7 +3,7 @@ export interface IUser {
     mote:string
     nombre:string
     apellido:string
-    contraseña:string
+    contrasenia:string
     activo:boolean
     borrado:boolean
     tipo:string
