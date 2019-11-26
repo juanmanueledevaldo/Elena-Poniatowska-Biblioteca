@@ -1,4 +1,5 @@
 //COMPONENT
+import { ToastrService } from 'ngx-toastr'
 import { Injectable } from '@angular/core'
 import { catchError, retry } from "rxjs/operators"
 import { Observable, throwError } from 'rxjs'
@@ -15,7 +16,7 @@ export class BookService {//VAR
   //COMPONENT///////////////////////////////////////////////////////////////
   
   constructor(
-    private http:HttpClient
+    private http:HttpClient, private toastr: ToastrService
     ) //LOADPAGE
   { }//COMPONENT///////////////////////////////////////////////////////////////
   
@@ -62,6 +63,10 @@ export class BookService {//VAR
       catchError(this.handleError)
     )
   }
+  toast(){
+    this.toastr.info("Bienvenido","Recuerda regresar tus libros a tiempo para no generar intereses");
+   
+}
   //METODS///IBOOK////////////////////////////////////////////////////////////
   
 }

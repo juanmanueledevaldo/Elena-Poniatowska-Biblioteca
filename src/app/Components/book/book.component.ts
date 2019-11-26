@@ -72,7 +72,7 @@ export class BookComponent implements OnInit {//VAR
       this.book.stock = this.BookForm.get("Stock").value
       this.book.imagen = "../../../assets/Images/2827_1_books_01831_lacabana.jpg"
       this.book.borrado = false
-    
+      
       if (this.book.id != null && this.book.id != 0) {
         this._bookService.update(this.book).subscribe(
           res =>{
