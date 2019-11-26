@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { ILogin } from '../Model/login';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class LoginService {
 
 
 
-  login(formData) {
-    return this.http.post(this.BaseURI , formData);
+  login(login:ILogin) {
+    return this.http.post(this.BaseURI , login);
   }
 
   getUserProfile() {
