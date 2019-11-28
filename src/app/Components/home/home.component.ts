@@ -18,8 +18,8 @@ import { BookService } from 'src/app/Service/book.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  userDetails;
-  constructor(config: NgbCarouselConfig, private toastr: ToastrService, private _bookService: BookService) {  
+ 
+  constructor(config: NgbCarouselConfig, private toastr: ToastrService, private _bookService: BookService, private router: Router) {  
     config.interval = 2500; 
     config.wrap = true; 
     config.keyboard = false; 
@@ -37,9 +37,6 @@ export class HomeComponent implements OnInit {
     // );
   }
   
-  // onLogout() {
-  //   localStorage.removeItem('token');
-  //   this.router.navigate(['/login']);
-  // }
+  
 
 }
