@@ -3,15 +3,18 @@
     [(ngModel)]="filterBooks">
 </div>
 <hr>
-<div class="row">
-  <div class="col-lg-3" *ngFor="let item of books| books:filterBooks;">
-    <div class="card pt-3" style="width: 18rem;">
-      <img class="card-img-top " src="{{item.imagen}}" alt="Card image cap">
+<div class="row wrap">
+  <div style="padding: 5px;" class="col-lg-4" *ngFor="let item of books|  books:filterBooks; ">
+    <mat-card>
+      <img  mat-card-image src="{{item.imagen}}"  title="{{item.nombre}}">
       <div class="card-body">
         <h5 class="card-title">{{item.nombre}}</h5>
         <p class="card-text">By: {{item.autor}}</p>
-        <a [routerLink]="[ '/detail/',item.id ]" class="btn btn-outline-success">Ver Detalles</a>
+        <mat-card-footer>
+        <a  [routerLink]="[ '/detail/',item.id ]" class="btn btn-outline-success">Ver Detalles</a>
+        </mat-card-footer>
       </div>
-    </div>
+   
+    </mat-card>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 
 import {ILogin} from '../../Model/login';
 import { LoginService } from 'src/app/Service/login.service';
+import { BehaviorSubject } from 'rxjs';
 //COMPONENT/////////////////////////////////////////
 //INTERFACE
 //INTERFACE/////////////////////////////////////////
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
  login: ILogin ={Mote:"",Contraseña:""}
  loginForm: FormGroup;
  isSubmitted  =  false;
+
 
 
   constructor(private _LoginService: LoginService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder) { }
@@ -68,5 +70,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+ 
   get formControls() { return this.loginForm.controls; }
 }

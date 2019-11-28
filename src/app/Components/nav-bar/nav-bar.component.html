@@ -50,7 +50,9 @@
           <button class="btn btn-outline btn-md my-2 my-sm-0 ml-3" type="submit">Buscar</button>
       
         </form>
-        <!-- Usuario:  {{ userDetails.mote}}    -->
+       
+        <button *ngIf="isLoggedIn$ | async as isLoggedIn"  class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Cerrar Sesion</button>
+      
        </div>
   </nav>
   <script>
