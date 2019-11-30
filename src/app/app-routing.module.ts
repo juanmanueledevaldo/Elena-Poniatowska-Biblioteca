@@ -9,7 +9,6 @@ import { ErrorComponent } from './Errors/error/error.component'
 import { LoginComponent } from './Components/login/login.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
-import { LogComponent } from './Components/log/log.component'
 //COMPONENT/////////////////////////////////////////////////////////
 //MODULE
 import { NgModule } from '@angular/core'
@@ -26,14 +25,13 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'loan/:id', component: LoanComponent },
-  { path: 'mantenimiento', component: AddEditUserComponent },
+  { path: 'manage', component: AddEditUserComponent },
   { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserComponent },
   { path: 'book', component: BookComponent },
   { path: 'book/:id', component: BookComponent },
   { path: 'detail/:id', component: DetailbookComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'log', component: LogComponent },
   { path: '**', component: ErrorComponent },
   
 ]

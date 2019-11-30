@@ -37,7 +37,6 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component'
 import { ErrorComponent } from './Errors/error/error.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
-import { LogComponent } from './Components/log/log.component'
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
 //COMPONENT//////////////////////////////////////////////////////////////////////////////////
 //SERVICE
@@ -67,7 +66,6 @@ import {LoginService} from './Service/login.service'
     ErrorComponent,
     DetailbookComponent,
     AddEditUserComponent,
-    LogComponent,
     AddEditLoanComponent,
     BooksPipe,
     UsersPipe,
