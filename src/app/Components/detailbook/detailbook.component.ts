@@ -21,7 +21,7 @@ export class DetailbookComponent implements OnInit {//VAR
 
   book: IBook
   detail: IDetail
-  seeBook:any;
+  seeBook: any;
   ///VAR////////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _detailService: DetailService,
@@ -38,40 +38,20 @@ export class DetailbookComponent implements OnInit {//VAR
         this.seeBook = paramsBook["id"]
         if (this.seeBook) {
           this._bookService.get(this.seeBook).subscribe(
-            getBook => {
-              this.book = getBook;
-              Swal.fire(
-                {
-                  title: `Has elegido ${this.book.nombre}`
-                }
-              )
-            },
-            error => {
-              Swal.fire(
-                {
-                  title:"Valio kabezuki el get del libro"
-                }
-              )
-            }
+            getBook => { this.book = getBook },
+            error => console.log(error) 
           )
         } else
           console.log("no hay libro")
       },
-      err => {
-        console.log(err)
-      }
+      error => console.log(error) 
     )
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
     this.detail.libroi = this.book.id;
     this._detailService.post(this.detail).subscribe(
-      res => {
-        Swal.fire(
-          {
-            title:"SIMON"
-          }
-        )
-      }
+      res => {Swal.fire({title: "SIMON"})},
+      error => console.log(error)
     )
   }//IDETAIL//////////////////////////////////////////
   //METODS//////////////////////////////////////////

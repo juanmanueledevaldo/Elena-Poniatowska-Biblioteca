@@ -85,19 +85,13 @@ export class UserComponent implements OnInit {//VAR
                 }
               )
             },
-            error => {
-              Swal.fire(
-                {
-                  title: "Päso una wea, revisalo"
-                }
-              )
-            }
+            error => console.log(error)
           )
         }
         else {
           Swal.fire(
             {
-              title: "Hay un conflicto con traer el usauario"
+              title: "Registrar usuario"
             }
           )
         }
@@ -121,21 +115,18 @@ export class UserComponent implements OnInit {//VAR
         this.user.cuatrimestre =  this.UserForm.get("Cuatrimestre").value
         this.user.tipo = ""
         this.user.grupo ="A"
-
         this.user.borrado = false
-        this.user.activo = true
-        console.log(this.user);
-        
+        this.user.activo = true        
         if (this.user.id != null && this.user.id!=0) {
           this._userService.update(this.user).subscribe(
             data => Swal.fire({title: "Actualizado"}), 
-            error => Swal.fire({title: "Valio kabezuki act"})
+            error => Swal.fire({title: "Valio kabezuki el actualizar"})
           )
         }
         else {
           this._userService.post(this.user).subscribe(
             data => Swal.fire({text: "Creado"}),
-            error => Swal.fire({title: "Valio kabezuki"})
+            error => Swal.fire({title: "Valio kabezuki el create"})
           )
         }
         this.onResetForm()

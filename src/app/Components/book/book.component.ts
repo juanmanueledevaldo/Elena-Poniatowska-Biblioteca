@@ -21,12 +21,12 @@ import { DetailService } from 'src/app/Service/detail.service'
 })
 export class BookComponent implements OnInit {//VAR
   seeBook: any
-  book: IBook={nombre:"",borrado:false,id:0,anio:"",autor:"",editorial:"",estante:"",folio:"",genero:"",paginas:0,stock:0,descripcion:"",imagen:""}
+  book: IBook = { nombre: "", borrado: false, id: 0, anio: "", autor: "", editorial: "", estante: "", folio: "", genero: "", paginas: 0, stock: 0, descripcion: "", imagen: "" }
   detail: IDetail
-  BookForm:FormGroup
+  BookForm: FormGroup
   //VAR/////////////////////////////////////////////////////
   constructor(//LOADPAGE
-    
+
     private _detailService: DetailService,
     private _bookService: BookService,
     private route: ActivatedRoute
@@ -34,31 +34,29 @@ export class BookComponent implements OnInit {//VAR
   ngOnInit() {
     this.get()
     this.BookForm = this.CreateFormGroup()
-    
+
   }//LOADPAGE/////////////////////////////////////////////////////
   CreateFormGroup()//METODS
   {
     return new FormGroup(
       {
-        Folio:new FormControl(""),
-        Nombre:new FormControl(""),
-        Autor:new FormControl(""),
-        Editorial:new FormControl(""),
-        Genero:new FormControl(""),
-        Estante:new FormControl(""),
-        Anio:new FormControl(""),
+        Folio: new FormControl(""),
+        Nombre: new FormControl(""),
+        Autor: new FormControl(""),
+        Editorial: new FormControl(""),
+        Genero: new FormControl(""),
+        Estante: new FormControl(""),
+        Anio: new FormControl(""),
         Paginas: new FormControl(""),
-        Descripcion:new FormControl(""),
-        Stock:new FormControl("")     
+        Descripcion: new FormControl(""),
+        Stock: new FormControl("")
       }
     )
   }
-  onResetForm()
-  {
+  onResetForm() {
     this.BookForm.reset();
   }
-  onSaveForm()
-  {
+  onSaveForm() {
     if (this.BookForm.valid) {
       this.book.folio = this.BookForm.get("Folio").value
       this.book.nombre = this.BookForm.get("Nombre").value
@@ -72,31 +70,23 @@ export class BookComponent implements OnInit {//VAR
       this.book.stock = this.BookForm.get("Stock").value
       this.book.imagen = "../../../assets/Images/2827_1_books_01831_lacabana.jpg"
       this.book.borrado = false
-      
+
       if (this.book.id != null && this.book.id != 0) {
         this._bookService.update(this.book).subscribe(
-          res =>{
+          res => {
             Swal.fire(
               {
-                title:"Ya quedo"
+                title: "Se actualizo correctamente"
               }
             )
           },
-          error =>{
-            Swal.fire(
-              {
-                title:"Valio kabesuki"
-              }
-            )
-          }
+          error => { Swal.fire({ title: "Valio kabesuki la actualizacion men" }) }
         )
       }
-      else{
+      else {
         this._bookService.post(this.book).subscribe(
-          res =>{
-            Swal.fire({title:"Creado"})
-          },
-          error => Swal.fire({title:"Valio kabesuki la creacion men"})
+          res => { Swal.fire({ title: "Creado" }) },
+          error => Swal.fire({ title: "Valio kabesuki la creacion men" })
         )
 
       }
@@ -118,66 +108,33 @@ export class BookComponent implements OnInit {//VAR
                 }
               )
             },
-            error => {
-              Swal.fire(
-                {
-                  title:"Valio kabesuki el get libro en prestamo"
-                }
-              )
-            }
+            error => console.log(error)
           )
         }
         else
-          Swal.fire(
-            {
-              text: "Elige un libro"
-            }
-          )
+          console.log("No hay parametros")
       },
-      err => {
-        Swal.fire(
-          {
-            title: "Que haces por aqui"
-          }
-        )
-      }
+      error => { Swal.fire({ title: "Que haces por aqui" }) }
     )
-    
+
   }//IBOOK///////////////////////////////////////////////////// 
   add() //IDETAIL
   {
-    this._detailService.post(this.book).subscribe(res => {
-      Swal.fire(
-        {
-          title: "Ya quedo padrino",
-          showConfirmButton: true,
-          timer: 1200
-        }
-      )
-    },
-      error => {
-        Swal.fire(
-          {
-            title: "Valio kbza",
-            text: "Nipedo"
-          }
-        )
-      }
+    this._detailService.post(this.book).subscribe(
+      res => { Swal.fire({ title: "Ya quedo padrino", showConfirmButton: true, timer: 1200 }) },
+      error => console.log(error)
     )
-//     //METODS/////////////////////////////////////////////////////
-   }//IDETAIL/////////////////////////////////////////////////////
-   get folio(){return this.BookForm.get("Folio")}
-   get nombre(){return this.BookForm.get("Nombre")}
-   get autor(){return this.BookForm.get("Autor")}
-   get editorial(){return this.BookForm.get("Editorial")}
-   get genero(){return this.BookForm.get("Genero")}
-   get estante(){return this.BookForm.get("Estante")}
-   get anio(){return this.BookForm.get("Anio")}
-   get paginas(){return this.BookForm.get("Paginas")}
-   get descripcion(){return this.BookForm.get("Descripcion")}
-   get stock (){return this.BookForm.get("Stock")}
-   
-   
-   
-   //METODS///////////////////////////////////////////////////////
- }
+    //     //METODS/////////////////////////////////////////////////////
+  }//IDETAIL/////////////////////////////////////////////////////
+  get folio() { return this.BookForm.get("Folio") }
+  get nombre() { return this.BookForm.get("Nombre") }
+  get autor() { return this.BookForm.get("Autor") }
+  get editorial() { return this.BookForm.get("Editorial") }
+  get genero() { return this.BookForm.get("Genero") }
+  get estante() { return this.BookForm.get("Estante") }
+  get anio() { return this.BookForm.get("Anio") }
+  get paginas() { return this.BookForm.get("Paginas") }
+  get descripcion() { return this.BookForm.get("Descripcion") }
+  get stock() { return this.BookForm.get("Stock") }
+  //METODS///////////////////////////////////////////////////////
+}

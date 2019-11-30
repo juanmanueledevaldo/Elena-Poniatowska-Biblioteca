@@ -28,21 +28,8 @@ export class CardsComponent implements OnInit {//VAR
   }//LOADPAGE////////////////////////////////////////////
   gets(){//METODS///IBOOK[]
     this._bookService.getAll().subscribe(
-      bookList => {
-        this.books = bookList
-        Swal.fire(
-          {
-            title:"Libros cargados correctamente"
-          }
-        )
-      },
-      error => {
-        Swal.fire(
-          {
-            title:"valio kabesuki"
-          }
-        )
-      }
+      bookList => {this.books = bookList},
+      error => console.log(error)
     )
   }
   //METODS////////////////////////////////////////////
