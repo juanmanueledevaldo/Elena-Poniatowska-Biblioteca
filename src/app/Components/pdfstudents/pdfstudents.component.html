@@ -1,0 +1,83 @@
+<hr>
+<div id="pdfTable" #pdfTable>
+    <h1>PDF de lo que sea ALV</h1>
+  
+    <table>
+      <tr>
+    <!--<tr *ngFor= "let user of usersList">
+      <th scope="row">{{user.id}}</th>-->
+      <th></th>
+      <th>dccs</th>
+      <th>Titulos</th>
+    </tr>
+    <tr>
+      <td>scs</td>
+      <td>csc</td>
+      <td>scc</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+    <tr>
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy</td>
+    </tr>
+  </table>
+  </div>
+
+<!--<input type = "text" placeholder="Buscar" class= "form-control" name="filterUser" id = "filterUser" [(ngModel)]= "filterUser" >
+  <br/> 
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Nickname</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <tr *ngFor= "let user of usersList | filter: filterUser">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.Nombre}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+   
+          
+        </tr>
+       
+      </tbody>
+    </table>
+
+
+
+<br>-->
+<button (click)='downloadAsPDF()'>Generar pdf</button>
+<hr>

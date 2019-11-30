@@ -10,6 +10,7 @@ import { LoginComponent } from './Components/login/login.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
 import { LogComponent } from './Components/log/log.component'
+import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.component'
 //COMPONENT/////////////////////////////////////////////////////////
 //MODULE
 import { NgModule } from '@angular/core'
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: DetailbookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'log', component: LogComponent },
+  {path: 'pdfstudents', component: PdfstudentsComponent},
   { path: '**', component: ErrorComponent },
   
 ]

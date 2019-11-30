@@ -39,6 +39,7 @@ import { DetailbookComponent } from './Components/detailbook/detailbook.componen
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
 import { LogComponent } from './Components/log/log.component'
 import { AuthInterceptor } from './Components/auth/auth.interceptor';
+import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.component'
 //COMPONENT//////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service'
@@ -71,7 +72,8 @@ import {LoginService} from './Service/login.service'
     AddEditLoanComponent,
     BooksPipe,
     UsersPipe,
-    LoansPipe
+    LoansPipe,
+    PdfstudentsComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
