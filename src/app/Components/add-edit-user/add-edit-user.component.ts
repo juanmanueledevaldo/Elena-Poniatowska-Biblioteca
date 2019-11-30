@@ -19,12 +19,12 @@ import { IUser } from 'src/app/Model/user'
   styleUrls: ['./add-edit-user.component.scss']
 })
 export class AddEditUserComponent implements OnInit {//VAR
-users:IUser[]
-user:IUser
-filterUsers=""
-//VAR//////////////////////////////////////////////////////
+  users: IUser[]
+  user: IUser
+  filterUsers = ""
+  //VAR//////////////////////////////////////////////////////
   constructor(//LOADPAGE
-    private _userService:UserService,
+    private _userService: UserService,
   ) { }
   ngOnInit() {
     this.gets()
@@ -32,33 +32,21 @@ filterUsers=""
   gets()//METDS///IUSER[]
   {
     this._userService.getAll().subscribe(
-      userList => {
-        this.users = userList
-        Swal.fire(
-          {
-            title:"Lista cargada correctamente"
-          }
-        )
-      },
-      error => {
-        Swal.fire(
-          {
-            title:"nel"
-          }
-        )
-      }
+      userList => { this.users = userList },
+      error => console.log(error)
     )
   }//IUSER[]//////////////////////////////////////////////////////
-  get(id:number){//IUSER
+  get(id: number) {//IUSER
     this._userService.get(id).subscribe(
-      user=>{
+      user => {
         this.user = user
         Swal.fire(
           {
-            title:`Se ha seleccionado ${this.user.mote}`
+            title: `Se ha seleccionado ${this.user.mote}`
           }
         )
-      }
+      },
+      error => console.log(error)
     )
   }//IUSER/////////////////////////////////////////////////////
   //METDS//////////////////////////////////////////////////////

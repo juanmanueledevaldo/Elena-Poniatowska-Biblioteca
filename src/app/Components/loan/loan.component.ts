@@ -43,7 +43,7 @@ export class LoanComponent implements OnInit {//VAR
     this.route.params.subscribe(
       params => {
         this.seeLoan = +params["id"];
-        if (this.seeLoan != null ) {
+        if (this.seeLoan != null) {
           this._loanService.getFolio(this.seeLoan).subscribe(
             getLoan => {
               this.loan = getLoan
@@ -52,26 +52,13 @@ export class LoanComponent implements OnInit {//VAR
               this.LoanForm.controls["Devolucion"].setValue(this.loan.devolucion)
               this.LoanForm.controls["Estado"].setValue(this.loan.estado)
             },
-            error => {
-              Swal.fire(
-                {
-                  title: "Valio kabezuki el get de loan"
-                }
-              )
-            }
+            error => console.log(error)
           )
         }
-        else {
+        else
           Swal.fire({ title: "Error con algo" })
-        }
       },
-      error => {
-        Swal.fire(
-          {
-            title: "errro con el params de loan"
-          }
-        )
-      }
+      error => console.log(error)
     )//subscribeParams
   }
   getDetails() {
@@ -111,7 +98,7 @@ export class LoanComponent implements OnInit {//VAR
           data => {
             Swal.fire(
               {
-                title: "Ya quedo padrino",
+                title: "Ya quedo el update padrino",
                 showConfirmButton: true,
                 timer: 1200,
               }
@@ -120,7 +107,7 @@ export class LoanComponent implements OnInit {//VAR
           error => {
             Swal.fire(
               {
-                title: "Valio kabesuki",
+                title: "Valio kabesuki el update",
                 text: "Algo salio mal",
                 footer: "Alivianate",
               }
@@ -129,7 +116,7 @@ export class LoanComponent implements OnInit {//VAR
         )
       }
       else {
-        
+
         this._loanService.postLoan(this.loan).subscribe(
           data => {
             Swal.fire(
@@ -145,7 +132,7 @@ export class LoanComponent implements OnInit {//VAR
             Swal.fire(
               {
 
-                title: "valio kabezuki.com",
+                title: "valio kabezuki el create",
                 text: "Revisalo",
                 footer: `F`
               }

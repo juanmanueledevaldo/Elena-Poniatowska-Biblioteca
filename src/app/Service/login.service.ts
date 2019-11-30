@@ -13,11 +13,6 @@ export class LoginService {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURI = 'https://localhost:44375/api/login';
 
-
-
-
-
-
   login(login:ILogin) {
     return this.http.post(this.BaseURI , login);
   }
