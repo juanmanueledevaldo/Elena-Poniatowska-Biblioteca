@@ -17,14 +17,13 @@ import { Observable } from 'rxjs';
 })
 export class NavBarComponent implements OnInit {//VAR
   navbarOpen = false;
-  isLoggedIn : Observable<boolean>;
 
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
   //VAR/////////////////////////////////////////
-  constructor(private router: Router, private service: LoginService) { }
+  constructor(private router: Router, private _service: LoginService) { }
   ngOnInit() {
     
 //  debugger;
@@ -41,10 +40,6 @@ export class NavBarComponent implements OnInit {//VAR
 //      },
 //     );
   }//LOADPAGE/////////////////////////////////////////
-  onLogout() {
-    debugger;
-    localStorage.removeItem('token');
-   this.router.navigate(['/login']);
- }
+  
  
 }
