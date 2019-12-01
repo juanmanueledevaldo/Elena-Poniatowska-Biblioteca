@@ -17,4 +17,11 @@ margin-left: 30%;
     text-decoration: yellow ! important;
     border-bottom: 4px solid yellow ! important;
 }
-
+.container-fluid {
+    height: 90%;
+    width: 100%;
+  }
+  
+  .carousel-inner img {
+    height: 300px;
+  }

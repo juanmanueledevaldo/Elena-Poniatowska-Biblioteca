@@ -1,6 +1,8 @@
 //COMPONENTS
 import { Component, OnInit } from '@angular/core'
 import Swal from 'sweetalert2'
+import * as jsPDF from 'jspdf'
+import { ViewChild, ElementRef } from '@angular/core'
 
 //COMPONENTS////////////////////////////////////////////////
 //INTERFACE
@@ -15,7 +17,7 @@ import { LoanService } from 'src/app/Service/loan.service'
   styleUrls: ['./add-edit-loan.component.scss']
 })
 export class AddEditLoanComponent implements OnInit {//VAR
-
+filterLoans = ""
   loans: ILoan[]
   loan: ILoan;
   //////////////////////////////////////////////////
@@ -57,4 +59,18 @@ export class AddEditLoanComponent implements OnInit {//VAR
     )
   }
   //METODS//////////////////////////////////////////////////
+  
+
+  @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
+
+  public downloadAsPDF() {
+
+
+    const doc = new  jsPDF();
+
+    var res = doc.fromHTML(document.getElementById('pdfTable'), 10, 10);
+ doc.save('Prueba');
+
+  }
+
 }

@@ -9,6 +9,7 @@ import { ErrorComponent } from './Errors/error/error.component'
 import { LoginComponent } from './Components/login/login.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
+import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.component'
 //COMPONENT/////////////////////////////////////////////////////////
 //MODULE
 import { NgModule } from '@angular/core'
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'book/:id', component: BookComponent },
   { path: 'detail/:id', component: DetailbookComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'pdfstudents', component: PdfstudentsComponent},
   { path: '**', component: ErrorComponent },
   
 ]
