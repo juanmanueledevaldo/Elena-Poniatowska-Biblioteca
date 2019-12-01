@@ -16,7 +16,7 @@
         </li>
   
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Iniciar Sesión</a>
+          <a class="nav-link" *ngIf="!_service.loggedIn()"  routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/user">Registrate</a>
@@ -49,7 +49,7 @@
       
         </form>
        
-        <button *ngIf="isLoggedIn$ | async as isLoggedIn"  class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Cerrar Sesion</button>
+        <button *ngIf="_service.loggedIn()"  class="btn btn-danger my-2 my-sm-0" (click)="_service.logoutUser()">Cerrar Sesion</button>
       
        </div>
   </nav>

@@ -3,14 +3,15 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ILogin } from '../Model/login';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class LoginService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  
+  constructor(private fb: FormBuilder, private http: HttpClient, private _router: Router) { }
   readonly BaseURI = 'https://localhost:44375/api/login';
 
   login(login:ILogin) {
@@ -20,9 +21,18 @@ export class LoginService {
   getUserProfile(id:number) {
     return this.http.get(`${this.BaseURI}/${id}`);
   }
-  get isUserLoggedIn(){
-    if(localStorage.getItem('currentUser') != null)
-    this.loggedIn.next(true);
-    return this.loggedIn.asObservable();
-} 
+
+  loggedIn() {
+    return !!localStorage.getItem('token')    
+  }
+
+  logoutUser() {
+    localStorage.removeItem('token')
+    this._router.navigate(['/login'])
+  }
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
+
 }
