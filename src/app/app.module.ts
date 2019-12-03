@@ -50,6 +50,7 @@ import { BooksPipe } from './Pipe/books.pipe';
 import { UsersPipe } from './Pipe/users.pipe';
 import { LoansPipe } from './Pipe/loans.pipe'
 import {LoginService} from './Service/login.service'
+import { AuthGuard } from './Components/auth/auth.guard';
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
 
 
@@ -95,6 +96,7 @@ import {LoginService} from './Service/login.service'
     BookService,
     DetailService,
     UserService,
+    AuthGuard,
     LoanService,
     LoginService,{
       provide: HTTP_INTERCEPTORS,
