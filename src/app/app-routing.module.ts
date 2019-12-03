@@ -10,11 +10,13 @@ import { LoginComponent } from './Components/login/login.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
 import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.component'
+
 //COMPONENT/////////////////////////////////////////////////////////
 //MODULE
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.component'
+import { AuthGuard } from './Components/auth/auth.guard';
 //MODULE/////////////////////////////////////////////////////////
 
 
@@ -26,7 +28,7 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'loan/:id', component: LoanComponent },
-  { path: 'manage', component: AddEditUserComponent },
+  { path: 'manage', component: AddEditUserComponent, canActivate:[AuthGuard] },
   { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserComponent },
   { path: 'book', component: BookComponent },
