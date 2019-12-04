@@ -9,7 +9,7 @@
       <span class="bg-light">Registro</span>
     </p>
     <hr>    
-    <form [formGroup]="UserForm" (ngSubmit)="onSaveForm()">
+    <form [formGroup]="UserForm" #FormBook="ngForm" (ngSubmit)="onSaveForm()">
       <div class="form-row mb-4">
         <div class="form-group input-group col md-form ">
           <div class="input-group-prepend">
@@ -26,6 +26,9 @@
           <input type="text" formControlName="Nombre" class="form-control" placeholder="Nombre">
 
         </div> <!-- form-group// -->
+        <div><span style="color: red;" *ngIf="!mote.valid && mote.touched" class="label label-danger">Favor de ingresar su nombre de usuario</span></div>
+      <div><span style="color: red;" *ngIf="!nombre.valid && nombre.touched" class="label label-danger">Favor de ingresar su nombre completo</span></div>
+      
       </div>
       <div class="form-row mb-4">
         <div class="form-group input-group col md-form">
@@ -39,7 +42,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-id-card"></i> </span>
           </div>
-          <!-- name -->
+         
 
           <!-- Matricula -->
           <input type="text" formControlName="Matricula" class="form-control" placeholder="Matricula">
@@ -65,10 +68,11 @@
       <div class="form-row mb-4">
           <div class="form-group input-group col md-form">
               <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                <span class="input-group-text"> <i class="fa fa-list-ol" aria-hidden="true"></i> </span>
               </div>
-              <select formControlName="Cuatrimestre" placeholder="Cuatrimestre"   style="max-width: 120px;">
-                  <option selected="1">1</option>
+              <select formControlName="Cuatrimestre" style="max-width: 120px;">
+                  <option selected="">Seleccione el cuatrimestre que esta cursando</option>
+                  <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3 </option>
                   <option value="4">4</option>
