@@ -12,6 +12,7 @@ import { IDetail } from 'src/app/Model/detail'
 //SERVICE
 import { BookService } from 'src/app/Service/book.service'
 import { DetailService } from 'src/app/Service/detail.service'
+import { Toast } from 'ngx-toastr'
 //SERVICE//////////////////////////////////////////////////
 
 @Component({
@@ -29,7 +30,8 @@ export class BookComponent implements OnInit {//VAR
 
     private _detailService: DetailService,
     private _bookService: BookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toast: Toast
   ) { }
   ngOnInit() {
     this.get()
@@ -49,7 +51,8 @@ export class BookComponent implements OnInit {//VAR
         Anio: new FormControl(""),
         Paginas: new FormControl(""),
         Descripcion: new FormControl(""),
-        Stock: new FormControl("")
+        Stock: new FormControl(""),
+     
       }
     )
   }
@@ -92,6 +95,16 @@ export class BookComponent implements OnInit {//VAR
       }
       this.onResetForm()
     }
+  }
+  Deletelibro(book: IBook){
+    this._bookService.delete(book.id).subscribe((data) => {
+      this.get();
+      this.onResetForm();
+      if(this.book.borrado)
+      Swal.fire({title:"Se ha borrado el libro correctamente"})
+      else
+      Swal.fire({title:"El libro esta activo"})
+    });
   }
   get() //IBOOK
   {
