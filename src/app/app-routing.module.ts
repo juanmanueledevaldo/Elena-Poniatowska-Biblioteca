@@ -17,6 +17,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.component'
 import { AuthGuard } from './Components/auth/auth.guard';
+import { AddEditBookComponent } from './Components/add-edit-book/add-edit-book.component'
 //MODULE/////////////////////////////////////////////////////////
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: DetailbookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'pdfstudents', component: PdfstudentsComponent, canActivate:[AuthGuard]},
+  {path: 'books', component: AddEditBookComponent},
   { path: '**', component: ErrorComponent },
   
 ]
