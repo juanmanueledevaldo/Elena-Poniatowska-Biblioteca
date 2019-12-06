@@ -10,6 +10,7 @@ import { IDetail } from 'src/app/Model/detail'
 import { BookService } from 'src/app/Service/book.service'
 import { DetailService } from 'src/app/Service/detail.service'
 import { Toast } from 'ngx-toastr'
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 //SERVICE//////////////////////////////////////////////////
 @Component({
   selector: 'app-add-edit-book',
@@ -22,6 +23,7 @@ export class AddEditBookComponent implements OnInit {
   book: IBook = { nombre: "", borrado: false, id: 0, anio: "", autor: "", editorial: "", estante: "", folio: "", genero: "", paginas: 0, stock: 0, descripcion: "", imagen: "" }
   detail: IDetail
   BookForm: FormGroup
+  public books: IBook[] = []
   //VAR/////////////////////////////////////////////////////
   constructor(//LOADPAGE
 
@@ -30,8 +32,8 @@ export class AddEditBookComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
   ngOnInit() {
-    this.get()
-    this.BookForm = this.CreateFormGroup()
+   this.gets();
+  
 
   }//LOADPAGE/////////////////////////////////////////////////////
   CreateFormGroup()//METODS
@@ -92,20 +94,26 @@ export class AddEditBookComponent implements OnInit {
       this.onResetForm()
     }
   }
-  Deletelibro(book: IBook){
-    this._bookService.delete(book.id).subscribe((data) => {
+  Deletelibro(book: number){
+    let bookSeleted  = this.books.find(x => x.id == book);
+    debugger;
+    this._bookService.delete(book).subscribe((data) => {
       this.get();
-      this.onResetForm();
-      if(this.book.borrado)
+      bookSeleted.borrado  = !bookSeleted.borrado;
+    
+      if(bookSeleted.borrado)
       Swal.fire({title:"Se ha borrado el libro correctamente"})
       else
       Swal.fire({title:"El libro esta activo"})
     });
+    this.books.find(x => x.id == book).borrado = bookSeleted.borrado;
   }
   get() //IBOOK
   {
+    
     this.route.params.subscribe(
       paramsBook => {
+        debugger;
         this.seeBook = paramsBook["id"]
         if (this.seeBook) {
           this._bookService.get(this.seeBook).subscribe(
@@ -127,6 +135,13 @@ export class AddEditBookComponent implements OnInit {
     )
 
   }//IBOOK///////////////////////////////////////////////////// 
+  
+  gets(){//METODS///IBOOK[]
+    this._bookService.getAll().subscribe(
+      bookList => {this.books = bookList},
+      error => console.log(error)
+    )
+  }
   add() //IDETAIL
   {
     this._detailService.post(this.book).subscribe(
