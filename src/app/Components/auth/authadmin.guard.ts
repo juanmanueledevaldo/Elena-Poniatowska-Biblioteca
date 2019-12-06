@@ -13,18 +13,19 @@ export class AuthAdmin implements CanActivate {
   }
   canActivate(): boolean {
     debugger;
-    if (this._service.loggedAdmin()) {
-      console.log('true')
+    if (this._service.isAdmin()) {
+      console.log("eres admin")
       return true
+      
     } else {
-      console.log('false')
+      
       if( this._service.loggedIn())
       {
         this.router.navigate(['/home'])
       }else{
         this.router.navigate(['/login'])
       }
-       
+       console.log("no eres admin")
       
       return false
     }
