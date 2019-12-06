@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ILogin } from '../Model/login';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,17 +19,19 @@ export class LoginService {
     return this.http.post(this.BaseURI , login);
   }
 
-  getUserProfile(id:number) {
-    return this.http.get(`${this.BaseURI}/${id}`);
-  }
 
   loggedIn() {
+  
     return !!localStorage.getItem('token')    
   }
 
-  loggedAdmin(){
-    return this.http.get('https://localhost:44375/api/login/IsAdmin');
+  isAdmin(){
+
+    return this.http.get(this.BaseURI);
   }
+  
+  
+  
 
   logoutUser() {
     localStorage.removeItem('token')
