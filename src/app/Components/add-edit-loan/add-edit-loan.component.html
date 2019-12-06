@@ -39,9 +39,9 @@
 
 
 
-                        <th>Nombre Usuario</th>
+                        <th>Nombre</th>
                         <th>Email</th>
-                        <th>Numero Telefonico</th>
+                        <th>Numero</th>
                         <th>Folio</th>
                         <th>Fecha</th>
                         <th>Devolucion</th>
@@ -55,8 +55,8 @@
                         <td>{{item.email}}</td>
                         <td>{{item.telefono}}</td>
                         <td>{{item.folio}}</td>
-                        <td>{{item.fecha| date: 'fullDate'}}</td>
-                        <td>{{item.devolucion}}</td>
+                        <td>{{item.fecha |date:"dd-MM-yyy"}}</td>
+                        <td>{{item.devolucion |date:"dd-MM-yyy"}}</td>
                         <td>{{item.estado}}</td>                       
                     </tr>
                 

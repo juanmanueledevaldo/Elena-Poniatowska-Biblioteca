@@ -14,8 +14,8 @@ import { IBook } from 'src/app/Model/book'
   providedIn: 'root'
 })
 export class DetailService {//VAR
-  private _apiUrl:string= "https://localhost:44375/api/detalles"
-  detail:IDetail
+  private _apiUrl:string= "https://localhost:44375/api/detalle"
+  detail:IDetail={id:0,libroi:0,libro:null,prestamo:null,prestamoi:0};
   //VAR////////////////////////////////////////////////////////////////////
   constructor(private http:HttpClient) //LOADPAGE
   { }//LOADPAGE////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ export class DetailService {//VAR
   }
   post(det)//IDETAIL
   {
-    this.detail = det
+    this.detail.libroi = +det
     return this.http.post(this._apiUrl, this.detail).pipe(
       catchError(this.handleError)
     )

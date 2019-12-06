@@ -48,9 +48,8 @@ export class DetailbookComponent implements OnInit {//VAR
     )
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
-    this.detail.libroi = this.book.id;
-    this._detailService.post(this.detail).subscribe(
-      res => {Swal.fire({title: "SIMON"})},
+    this._detailService.post(this.seeBook).subscribe(
+      res => { Swal.fire({ title: "Ya quedo padrino", showConfirmButton: true, timer: 1200 }) },
       error => console.log(error)
     )
   }//IDETAIL//////////////////////////////////////////
