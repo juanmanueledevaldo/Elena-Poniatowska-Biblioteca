@@ -8,15 +8,19 @@ import { LoginService } from 'src/app/Service/login.service';
 })
 export class AuthAdmin implements CanActivate {
 
-
+  role:string;
   constructor(private router: Router, private _service: LoginService) {
   }
+
   canActivate(): boolean {
-    debugger;
-    if (this._service.isAdmin()) {
+    this._service.isAdmin().subscribe(data=>{
+      console.log(data);
+      this.role = data.toString();
+
+    });
+    if (this.role == 'Admin') {
       console.log("eres admin")
-      return true
-      
+      return true;
     } else {
       
       if( this._service.loggedIn())
