@@ -26,6 +26,10 @@ export class LoginService {
     return !!localStorage.getItem('token')    
   }
 
+  loggedAdmin(){
+    return this.http.get('https://localhost:44375/api/login/IsAdmin');
+  }
+
   logoutUser() {
     localStorage.removeItem('token')
     this._router.navigate(['/login'])
