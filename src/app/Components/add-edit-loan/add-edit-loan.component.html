@@ -51,13 +51,14 @@
                 
                 
                     <tr *ngFor="let item of loans| loans:filterLoans; ">
-                        <td>{{item.nombres}}</td>
+                        <td>{{item.id}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.telefono}}</td>
                         <td>{{item.folio}}</td>
                         <td>{{item.fecha |date:"dd-MM-yyy"}}</td>
                         <td>{{item.devolucion |date:"dd-MM-yyy"}}</td>
-                        <td>{{item.estado}}</td>                       
+                        <td>{{item.estado}}</td> 
+                                             
                     </tr>
                 
             </table>

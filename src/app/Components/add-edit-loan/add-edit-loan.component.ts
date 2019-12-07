@@ -18,8 +18,9 @@ import { LoanService } from 'src/app/Service/loan.service'
 })
 export class AddEditLoanComponent implements OnInit {//VAR
 filterLoans = ""
-  loans: ILoan[]
+  //loans: ILoan[]
   loan: ILoan;
+  public loans: ILoan[] = []
   //////////////////////////////////////////////////
 
   constructor(private _loanService: LoanService)//LOADPAGE
@@ -68,7 +69,7 @@ filterLoans = ""
 
     const doc = new  jsPDF();
 
-    var res = doc.fromHTML(document.getElementById('pdfTable'), 10, 10);
+    var res = doc.fromHTML(document.getElementById('pdfTable'), 1, 1);
  doc.save('Prueba');
 
   }
