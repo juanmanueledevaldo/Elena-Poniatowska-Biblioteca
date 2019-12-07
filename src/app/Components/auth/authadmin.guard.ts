@@ -14,22 +14,20 @@ export class AuthAdmin implements CanActivate {
 
   canActivate(): boolean {
     this._service.isAdmin().subscribe(data=>{
-      console.log(data);
+    
       this.role = data.toString();
 
     });
     if (this.role == 'Admin') {
-      console.log("eres admin")
+  
       return true;
     } else {
       
-      if( this._service.loggedIn())
+      if(this.role=='Estudiante')
       {
         this.router.navigate(['/home'])
-      }else{
-        this.router.navigate(['/login'])
       }
-       console.log("no eres admin")
+      
       
       return false
     }

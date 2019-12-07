@@ -36,9 +36,9 @@ const routes: Routes = [
   { path: 'book', component: BookComponent, canActivate: [AuthAdmin, AuthGuard] },
   { path: 'book/:id', component: BookComponent, canActivate: [AuthGuard] },
   { path: 'detail/:id', component: DetailbookComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'pdfstudents', component: PdfstudentsComponent, canActivate:[AuthGuard]},
-  {path: 'books', component: AddEditBookComponent,  canActivate:[AuthAdmin]},
+  { path: 'login', component: LoginComponent  },
+  { path: 'pdfstudents', component: PdfstudentsComponent, canActivate:[AuthGuard, AuthAdmin]},
+  {path: 'books', component: AddEditBookComponent,  canActivate:[AuthAdmin, AuthGuard]},
   { path: '**', component: ErrorComponent },
   
 ]
