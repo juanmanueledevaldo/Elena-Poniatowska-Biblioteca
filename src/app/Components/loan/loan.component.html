@@ -36,16 +36,31 @@
       </form>
     </div>
     <div class="col-md-6">
-      Este campo esta libre
+        <ul>
+            <li >
+              <a href="">{{item.id}} - {{item.nombre}}</a>
+            </li>
+          </ul>
+          <div >
+
+            <div class="text-center border border-light p-5">
+              <div *ngFor="let item of detailList">
+                <img src="{{item.imagen}}" alt="" srcset="">
+                <h5 class="card-title">{{item.nombre}}a</h5>
+                <p class="card-text">{{item.estante}}</p>
+                <p class="card-text">{{item.stock}}</p>
+                
+                <a class="btn btn-danger" (click)="deleteItem(item.id)">Borrar</a>
+
+                <a id="boton" class="btn btn-outline-primary" (click)="add()">Compralo we</a>
+              </div>
+            </div>
+            
+            
+            </div>
     </div>
   </div>
 
 
 </div>
 <!-- Default form register -->
-<ul>
-  <li *ngFor="let item of detailList">
-    <a href="">{{item.id}} - {{item.libroi}}</a>
-    <a class="btn btn-danger" (click)="deleteItem(item.id)">Borrar</a>
-  </li>
-</ul>

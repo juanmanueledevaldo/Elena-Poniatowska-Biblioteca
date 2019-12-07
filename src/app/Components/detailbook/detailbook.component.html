@@ -28,10 +28,13 @@
                     <p>
                         <b>Paginas del Libro:</b> {{book.paginas}} pag </p>
                     <p>
-                        <a class="btn btn-warning btn-block" routerLink="/loan">
-                            <b>Solicitar Libro</b>
-                        </a>
-                    </p>
+                        <p>
+                            <b>En existencia</b> {{book.stock}} ejemplares </p>
+                        <p>
+                            <a class="btn btn-warning btn-block" (click)="add()">
+                                <b>Solicitar Libro</b>
+                            </a>
+                        </p>
                 </div>
             </div>
         </div>

@@ -22,7 +22,15 @@ export class LoanComponent implements OnInit {//VAR
 
   @Input('data') LoanFormm: FormGroup;
   @Output() OnSaveLoan = new EventEmitter<ILoan>()
-  loan: ILoan = { id: 0, folio: "", detalle: null, devolucion: "", estado: "", fecha: "", usuario: null, usuarioi: 0 }
+  loan: ILoan = { 
+    id: 0, 
+    folio: "", 
+    detalle: null, 
+    devolucion: "", 
+    estado: "", 
+    fecha: "", 
+    usuario: null, 
+    usuarioi: 0 }
   LoanForm: FormGroup
   seeLoan: any
   public detailList: IDetail[] = []
@@ -42,8 +50,8 @@ export class LoanComponent implements OnInit {//VAR
   get() {
     this.route.params.subscribe(
       params => {
-        this.seeLoan = +params["id"];
-        if (this.seeLoan != null) {
+        this.seeLoan = params["id"];
+        if (this.seeLoan != null && this.seeLoan != NaN) {
           this._loanService.getFolio(this.seeLoan).subscribe(
             getLoan => {
               this.loan = getLoan
@@ -142,6 +150,13 @@ export class LoanComponent implements OnInit {//VAR
         )
       }
       this.onResetForm()
+    }
+    else{
+      Swal.fire(
+        {
+          title :"Quepedo"
+        }
+      )
     }
   }//ILOAN///LOANFORM//////////////////////////////////////////
   deleteItem(id: any) {
