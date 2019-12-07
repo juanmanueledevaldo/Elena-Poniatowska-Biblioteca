@@ -6,7 +6,6 @@ import Swal from "sweetalert2"
 //COMPONENT/////////////////////////////////////////
 //INTERFACE
 import { IUser } from "src/app/Model/user"
-import { IStudent } from "src/app/Model/student"
 //INTERFACE/////////////////////////////////////////
 //SERVICE
 import { UserService } from "src/app/Service/user.service"
@@ -21,8 +20,22 @@ export class UserComponent implements OnInit {//VAR
   @Input('data') UserFormFather: FormGroup
   @Output() OnSaveUser = new EventEmitter<IUser>()
   seeUser: any
-  user: IUser = {id:0,apellido:"",contrasenia:"",tipo:"",activo:true,borrado:false,carrera:"",cuatrimestre:"",email:"",grupo:"",matricula:"",mote:"",nombre:"",telefono:""}
-  student: IStudent
+  user: IUser = {
+    id:0,
+    apellido:"",
+    contrasenia:"",
+    tipo:"",
+    activo:true,
+    borrado:false,
+    carrera:"",
+    cuatrimestre:"",
+    email:"",
+    grupo:"",
+    matricula:"",
+    mote:"",
+    nombre:"",
+    telefono:""
+  }
   UserForm: FormGroup
   //VAR/////////////////////////////////////////
   constructor(//LOADPAGE
@@ -63,12 +76,14 @@ export class UserComponent implements OnInit {//VAR
     this.route.params.subscribe(
       paramsUser => {
         this.seeUser = +paramsUser["id"]
+   
         if (this.seeUser) {
           this._userService.get(this.seeUser).subscribe(
             getUser => {
               this.user = getUser
+              
               this.UserForm.controls["Mote"].setValue(this.user.mote)
-              this.UserForm.controls["Mote"].setValue(this.user.nombre)
+              this.UserForm.controls["Nombre"].setValue(this.user.nombre)
               this.UserForm.controls["Apellido"].setValue(this.user.apellido)
               this.UserForm.controls["Contraseña"].setValue(this.user.contrasenia)
               this.UserForm.controls["Tipo"].setValue(this.user.tipo)
