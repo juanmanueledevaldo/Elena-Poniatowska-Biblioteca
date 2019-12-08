@@ -95,7 +95,7 @@ export class UserComponent implements OnInit {//VAR
               this.UserForm.controls["Grupo"].setValue(this.user.grupo)
               Swal.fire(
                 {
-                  title: "Andamos al tiro con el usuario",
+                  title: "Inicia un nuevo registro",
                   text:`${this.user.mote}`
                 }
               )
@@ -135,13 +135,13 @@ export class UserComponent implements OnInit {//VAR
         if (this.user.id != null && this.user.id!=0) {
           this._userService.update(this.user).subscribe(
             data => Swal.fire({title: "Actualizado"}), 
-            error => Swal.fire({title: "Valio kabezuki el actualizar"})
+            error => Swal.fire({title: "No se pudo actualizar el usuario"})
           )
         }
         else {
           this._userService.post(this.user).subscribe(
             data => Swal.fire({text: "Creado"}),
-            error => Swal.fire({title: "Valio kabezuki el create"})
+            error => Swal.fire({title: "No se puedo crear el usuario"})
           )
         }
         this.onResetForm()

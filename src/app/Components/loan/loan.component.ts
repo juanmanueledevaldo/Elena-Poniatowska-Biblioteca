@@ -106,7 +106,7 @@ export class LoanComponent implements OnInit {//VAR
           data => {
             Swal.fire(
               {
-                title: "Ya quedo el update padrino",
+                title: "Se ha actualizado el prestamo",
                 showConfirmButton: true,
                 timer: 1200,
               }
@@ -115,7 +115,7 @@ export class LoanComponent implements OnInit {//VAR
           error => {
             Swal.fire(
               {
-                title: "Valio kabesuki el update",
+                title: "No se puedo hacer la actualización",
                 text: "Algo salio mal",
                 footer: "Alivianate",
               }

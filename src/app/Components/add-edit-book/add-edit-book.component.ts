@@ -81,13 +81,13 @@ export class AddEditBookComponent implements OnInit {
               }
             )
           },
-          error => { Swal.fire({ title: "Valio kabesuki la actualizacion men" }) }
+          error => { Swal.fire({ title: "No se puedo actualizar el libro" }) }
         )
       }
       else {
         this._bookService.post(this.book).subscribe(
           res => { Swal.fire({ title: "Creado" }) },
-          error => Swal.fire({ title: "Valio kabesuki la creacion men" })
+          error => Swal.fire({ title: "No se pudo registrar el libro correctamente" })
         )
 
       }
@@ -145,7 +145,7 @@ export class AddEditBookComponent implements OnInit {
   add() //IDETAIL
   {
     this._detailService.post(this.book).subscribe(
-      res => { Swal.fire({ title: "Ya quedo padrino", showConfirmButton: true, timer: 1200 }) },
+      res => { Swal.fire({ title: "Se agrego el libro", showConfirmButton: true, timer: 1200 }) },
       error => console.log(error)
     )
     //     //METODS/////////////////////////////////////////////////////
