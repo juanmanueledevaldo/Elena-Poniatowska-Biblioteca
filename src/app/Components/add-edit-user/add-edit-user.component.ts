@@ -2,9 +2,12 @@
 import { Component, OnInit } from '@angular/core'
 import { UserService } from 'src/app/Service/user.service'
 import Swal from "sweetalert2"
+
 //COMPONENT//////////////////////////////////////////////////////
 //INTERFACE
 import { IUser } from 'src/app/Model/user'
+import { ActivatedRoute } from '@angular/router'
+import { Observable } from 'rxjs';
 //INTERFACE//////////////////////////////////////////////////////
 
 //SERVICE
@@ -21,10 +24,11 @@ import { IUser } from 'src/app/Model/user'
 export class AddEditUserComponent implements OnInit {//VAR
   users: IUser[]
   user: IUser
+  seeUser: any
   filterUsers = ""
   //VAR//////////////////////////////////////////////////////
   constructor(//LOADPAGE
-    private _userService: UserService,
+    private _userService: UserService, private route: ActivatedRoute
   ) { }
   ngOnInit() {
     this.gets()
@@ -36,18 +40,52 @@ export class AddEditUserComponent implements OnInit {//VAR
       error => console.log(error)
     )
   }//IUSER[]//////////////////////////////////////////////////////
-  get(id: number) {//IUSER
-    this._userService.get(id).subscribe(
-      user => {
-        this.user = user
-        Swal.fire(
-          {
-            title: `Se ha seleccionado ${this.user.mote}`
-          }
-        )
+    deleteUser(user: number){
+      debugger;
+      let userSeleted  = this.users.find(x => x.id == user);
+    
+      this._userService.delete(user).subscribe((data) => {
+        this.get();
+        userSeleted.activo  = !userSeleted.activo;
+    
+        if(userSeleted.activo)
+     Swal.fire({title:"El usuario esta activo"})
+        else 
+        Swal.fire({title:"Se ha desactivado el usuario correctamente"})
+      });
+     this.users.find(x => x.id == user).activo = userSeleted.activo;
+    
+   }
+ 
+  
+
+  get() //IBOOK
+  {
+    
+    this.route.params.subscribe(
+      paramsBook => {
+        debugger;
+        this.seeUser = paramsBook["id"]
+        if (this.seeUser) {
+          this._userService.get(this.seeUser).subscribe(
+            book => {
+              this.user = book
+              Swal.fire(
+                {
+                  title: `${this.user.nombre}`,
+                }
+              )
+            },
+            error => console.log(error)
+          )
+        }
+        else
+          console.log("No hay parametros")
       },
-      error => console.log(error)
+      error => { Swal.fire({ title: "Que haces por aqui" }) }
     )
+
   }//IUSER/////////////////////////////////////////////////////
   //METDS//////////////////////////////////////////////////////
+
 }

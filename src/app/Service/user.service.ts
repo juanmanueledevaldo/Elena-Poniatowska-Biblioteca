@@ -56,10 +56,10 @@ export class UserService {//VAR
   }
   delete(id:number)
   {
-    let requestUrl =`${this._apiUrl}/${id}`
-    this.http.delete(requestUrl).pipe(
+    let requestUrl = `${this._apiUrl}/${id}`
+    return this.http.delete(requestUrl).pipe(
       catchError(this.handleError)
     )
-  }//USER///METODS///////////////////////////////////////////////////////////////
+  }USER///METODS///////////////////////////////////////////////////////////////
   
 }
