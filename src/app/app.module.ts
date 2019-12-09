@@ -1,7 +1,7 @@
 //MODULE
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpHeaders } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -53,6 +53,7 @@ import { BooksPipe } from './Pipe/books.pipe';
 import { UsersPipe } from './Pipe/users.pipe';
 import { LoansPipe } from './Pipe/loans.pipe'
 import {LoginService} from './Service/login.service';
+import { ExcelComponent } from './Components/excel/excel.component';
 
 
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
@@ -78,6 +79,7 @@ import {LoginService} from './Service/login.service';
     LoansPipe,
     PdfstudentsComponent,
     AddEditBookComponent,
+    ExcelComponent
     
   ],
   schemas: [

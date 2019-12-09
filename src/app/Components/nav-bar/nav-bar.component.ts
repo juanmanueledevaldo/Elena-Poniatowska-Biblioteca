@@ -3,6 +3,7 @@ import { Component, OnInit, HostBinding, HostListener } from '@angular/core'
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/login.service';
 import { Observable } from 'rxjs';
+import { ExcelService } from 'src/app/Service/excel.service';
 
 //COMPONENT/////////////////////////////////////////
 //INTERFACE
@@ -23,7 +24,7 @@ export class NavBarComponent implements OnInit {//VAR
     this.navbarOpen = !this.navbarOpen;
   }
   //VAR/////////////////////////////////////////
-  constructor(private router: Router, private _service: LoginService) { }
+  constructor(private router: Router, private _service: LoginService, private _reporte: ExcelService) { }
   ngOnInit() {
     
 //  debugger;
@@ -41,5 +42,21 @@ export class NavBarComponent implements OnInit {//VAR
 //     );
   }//LOADPAGE/////////////////////////////////////////
   
+  loans()
+  {
+    return this._reporte.getExcelLoans();
+      
+    
+  }
+
+  books()
+  {
+    return this._reporte.getExcelBooks();
+  }
+
+  users()
+  {
+    return this._reporte.getExcelUsers();
+  }
  
 }
