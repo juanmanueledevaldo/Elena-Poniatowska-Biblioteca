@@ -25,7 +25,7 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                       
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Numero Telefonico</th>
@@ -33,12 +33,13 @@
                         <th>Cuatrimestre</th>
                         <th>Carrera</th>
                         <th>Tipo Usuario</th>
+                        <th>Usuario Activo?</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of users ">
-                       
+                        <td>{{item.id}}</td>
                         <td>{{item.nombre}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.telefono}}</td>
@@ -46,12 +47,13 @@
                         <td>{{item.cuatrimestre}}</td>
                         <td>{{item.carrera}}</td>
                         <td>{{item.tipo}}</td>
+                        <td>{{item.activo}}</td>
                         <td>
                             <!-- href="#editEmployeeModal" -->
                             <a [routerLink]="['/user/',item.id]" class="edit" data-toggle="modal"><i class="far fa-edit"
                                     tittle="Edit" data-toggle="tooltip"></i></a>
-                            <a class="delete" data-toggle="modal"><i
-                                    class="far fa-trash-alt" title="Edit" data-toggle="tooltip"></i></a>
+                            <a class="delete" (click)="deleteUser(item.id)" data-toggle="modal"><i
+                                    class="far fa-trash-alt" title="borrar" data-toggle="tooltip"></i></a>
                         </td>
                     </tr>
                   

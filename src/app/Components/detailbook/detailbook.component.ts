@@ -49,7 +49,7 @@ export class DetailbookComponent implements OnInit {//VAR
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
     this._detailService.post(this.seeBook).subscribe(
-      res => { Swal.fire({ title: "Ya quedo padrino", showConfirmButton: true, timer: 1200 }) },
+      res => { Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", showConfirmButton: true, timer: 4200 }) },
       error => console.log(error)
     )
   }//IDETAIL//////////////////////////////////////////

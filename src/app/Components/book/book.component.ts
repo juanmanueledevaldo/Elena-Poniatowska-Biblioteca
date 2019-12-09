@@ -83,29 +83,29 @@ export class BookComponent implements OnInit {//VAR
               }
             )
           },
-          error => { Swal.fire({ title: "Valio kabesuki la actualizacion men" }) }
+          error => { Swal.fire({ title: "No se pudo actualizar el libro correctamente" }) }
         )
       }
       else {
         this._bookService.post(this.book).subscribe(
           res => { Swal.fire({ title: "Creado" }) },
-          error => Swal.fire({ title: "Valio kabesuki la creacion men" })
+          error => Swal.fire({ title: "No se pudo crear el libro" })
         )
 
       }
       this.onResetForm()
     }
   }
-  Deletelibro(book: IBook){
-    this._bookService.delete(book.id).subscribe((data) => {
-      this.get();
-      this.onResetForm();
-      if(this.book.borrado)
-      Swal.fire({title:"Se ha borrado el libro correctamente"})
-      else
-      Swal.fire({title:"El libro esta activo"})
-    });
-  }
+  // Deletelibro(book: IBook){
+  //   this._bookService.delete(book.id).subscribe((data) => {
+  //     this.get();
+  //     this.onResetForm();
+  //     if(this.book.borrado)
+  //     Swal.fire({title:"Se ha borrado el libro correctamente"})
+  //     else
+  //     Swal.fire({title:"El libro esta activo"})
+  //   });
+  // }
   get() //IBOOK
   {
     this.route.params.subscribe(
@@ -134,7 +134,7 @@ export class BookComponent implements OnInit {//VAR
   add() //IDETAIL
   {
     this._detailService.post(this.book).subscribe(
-      res => { Swal.fire({ title: "Ya quedo padrino", showConfirmButton: true, timer: 1200 }) },
+      res => { Swal.fire({ title: "Se ha registrado correctamente el libro", showConfirmButton: true, timer: 1200 }) },
       error => console.log(error)
     )
     //     //METODS/////////////////////////////////////////////////////
