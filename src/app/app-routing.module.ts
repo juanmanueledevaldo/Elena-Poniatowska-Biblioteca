@@ -25,7 +25,7 @@ import { AddEditBookComponent } from './Components/add-edit-book/add-edit-book.c
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate:[AuthAdmin] },
   { path: 'home', component: HomeComponent },
   { path: 'loans', component: AddEditLoanComponent, canActivate:[AuthAdmin, AuthGuard] },
   { path: 'cards', component: CardsComponent },
