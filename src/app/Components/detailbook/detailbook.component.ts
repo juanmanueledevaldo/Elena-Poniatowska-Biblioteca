@@ -10,6 +10,7 @@ import { IDetail } from 'src/app/Model/detail'
 //SERVICE
 import { BookService } from 'src/app/Service/book.service'
 import { DetailService } from 'src/app/Service/detail.service'
+import { LoginService } from '../../Service/login.service';
 ///SERVICE////////////////////////////////////////////////
 
 @Component({
@@ -26,7 +27,8 @@ export class DetailbookComponent implements OnInit {//VAR
   constructor(//LOADPAGE
     private _detailService: DetailService,
     private _bookService: BookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _service: LoginService
   ) { }
   ngOnInit() {
     this.get()
@@ -49,7 +51,7 @@ export class DetailbookComponent implements OnInit {//VAR
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
     this._detailService.post(this.seeBook).subscribe(
-      res => { Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", showConfirmButton: true, timer: 4200 }) },
+      res => { Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) },
       error => console.log(error)
     )
   }//IDETAIL//////////////////////////////////////////
