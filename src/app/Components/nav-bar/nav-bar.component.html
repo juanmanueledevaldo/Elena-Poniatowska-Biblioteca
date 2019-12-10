@@ -1,72 +1,70 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top topnav" id="myTopnav">
-  <a class="navbar-brand" routerLink="/home">
-    EPBiblioteca
-  </a>
-
-
-  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Reportes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="loans()">Reporte Prestamos</a>
-            <a class="dropdown-item" (click)="books()">Reporte Libros</a>
-            <a class="dropdown-item" (click)="users()">Reporte Usuarios</a>
-          </div>
-        </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/home">Inicio</a>
-      </li>
-    
+    <a class="navbar-brand" routerLink="/home">
+      EPBiblioteca
+    </a>
+  
+    <button class="navbar-toggler" type="button"  (click)="toggleNavbar()">
       
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="!_service.loggedIn()" [routerLinkActive]="['activate']" routerLink="/login"
-          routerLinkActive="active">Iniciar Sesión</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/user">Registrate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/book">Registrar Libro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/manage">Mantenimiento Usuario</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/loan">Solicitar Prestamo</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link " [routerLinkActive]="['activate']" routerLink="/cards">Todos los libros</a>
-
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/loans">Mantenimiento Prestamos<span
-            class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/books">Mantenimiento Libros<span
-            class="sr-only">(current)</span></a>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+  
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" >
+      <ul class="navbar-nav mr-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/home">Inicio</a>
         </li>
+   <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" *ngIf="_service.loggedIn()"   href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reportes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" (click)="loans()">Reporte Prestamos</a>
+                <a class="dropdown-item" (click)="books()">Reporte Libros</a>
+                <a class="dropdown-item" (click)="users()">Reporte Usuarios</a>
+              </div>
+            </li>
+       
         <li class="nav-item">
           <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/user">Registrate</a>
-          </li>
         </li>
-        
-    </ul>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="_service.loggedIn() && _service.isAdmin()   " [routerLinkActive]="['activate']" routerLinkActivate="active" routerLink="/book">Registrar Libro</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" *ngIf="_service.loggedIn()" [routerLinkActive]="['activate']" routerLinkActive="active" routerLink="/manage">Mantenimiento Usuario</a>
+            </li>
+            
+              <li class="nav-item">
+                  <a class="nav-link" *ngIf="_service.loggedIn()" [routerLinkActive]="['activate']" routerLinkActive="active" routerLink="/loan">Solicitar Prestamo</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link " [routerLinkActive]="['activate']" routerLink="/cards">Todos los libros</a>
+          
+                </li>
+                
+                
+                <li class="nav-item">
+                  <a class="nav-link" *ngIf="_service.loggedIn()" [routerLinkActive]="['activate']" routerLinkActive="active" routerLink="/loans">Mantenimiento Prestamos<span class="sr-only">(current)</span></a>
+                </li>
 
-    <button *ngIf="_service.loggedIn()" class="btn btn-danger my-2 my-sm-0" (click)="_service.logoutUser()">Cerrar
-      Sesion</button>
-
-  </div>
-</nav>
-
-
+                <li class="nav-item">
+                  <a class="nav-link" *ngIf=" _service.loggedIn()" [routerLinkActive]="['activate']" routerLinkActive="active" routerLink="/books">Mantenimiento Libros<span class="sr-only">(current)</span></a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!_service.loggedIn()" [routerLinkActive]="['activate']"  routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
+                  </li>
+      </ul>
+    
+       
+        <button *ngIf="_service.loggedIn()"  class="btn btn-danger my-2 my-sm-0" (click)="_service.logoutUser()">Cerrar Sesion</button>
+      
+       </div>
+  </nav>
+ 
+    
 <br>
 <br>
 <br>

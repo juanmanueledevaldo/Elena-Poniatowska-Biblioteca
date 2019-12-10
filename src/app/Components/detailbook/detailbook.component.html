@@ -31,7 +31,7 @@
                         <p>
                             <b>En existencia</b> {{book.stock}} ejemplares </p>
                         <p>
-                            <a class="btn btn-warning btn-block" (click)="add()">
+                            <a class="btn btn-warning btn-block" *ngIf="_service.loggedIn()" (click)="add()">
                                 <b>Solicitar Libro</b>
                             </a>
                         </p>
