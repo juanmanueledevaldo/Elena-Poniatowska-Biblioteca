@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/login.service';
 import { Observable } from 'rxjs';
 import { ExcelService } from 'src/app/Service/excel.service';
+import { AuthAdmin } from '../auth/authadmin.guard';
 
 //COMPONENT/////////////////////////////////////////
 //INTERFACE
@@ -18,7 +19,7 @@ import { ExcelService } from 'src/app/Service/excel.service';
 })
 export class NavBarComponent implements OnInit {//VAR
   navbarOpen = false;
-
+  
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
@@ -42,6 +43,7 @@ export class NavBarComponent implements OnInit {//VAR
 //     );
   }//LOADPAGE/////////////////////////////////////////
   
+
   loans()
   {
     return this._reporte.getExcelLoans();

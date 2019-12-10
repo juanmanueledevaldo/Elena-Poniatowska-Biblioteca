@@ -16,10 +16,10 @@
           <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/home">Inicio</a>
         </li>
    <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" *ngIf="_service.loggedIn()"   href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a  class="nav-link dropdown-toggle" *ngIf="_service.loggedIn()"   href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Reportes
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <div  class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" (click)="loans()">Reporte Prestamos</a>
                 <a class="dropdown-item" (click)="books()">Reporte Libros</a>
                 <a class="dropdown-item" (click)="users()">Reporte Usuarios</a>
@@ -30,7 +30,7 @@
           <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/user">Registrate</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" *ngIf="_service.loggedIn() && _service.isAdmin()   " [routerLinkActive]="['activate']" routerLinkActivate="active" routerLink="/book">Registrar Libro</a>
+            <a class="nav-link" *ngIf="_service.loggedIn() && _service.isAdmin()" [routerLinkActive]="['activate']" routerLinkActivate="active" routerLink="/book">Registrar Libro</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" *ngIf="_service.loggedIn()" [routerLinkActive]="['activate']" routerLinkActive="active" routerLink="/manage">Mantenimiento Usuario</a>
