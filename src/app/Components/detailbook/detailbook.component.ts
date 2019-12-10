@@ -23,6 +23,8 @@ export class DetailbookComponent implements OnInit {//VAR
   book: IBook
   detail: IDetail
   seeBook: any;
+  seeDetail:any
+
   ///VAR////////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _detailService: DetailService,
@@ -40,7 +42,10 @@ export class DetailbookComponent implements OnInit {//VAR
         this.seeBook = paramsBook["id"]
         if (this.seeBook) {
           this._bookService.get(this.seeBook).subscribe(
-            getBook => { this.book = getBook },
+            getBook => { 
+              this.book = getBook
+              this.details(this.seeBook);
+            },
             error => console.log(error) 
           )
         } else
@@ -51,10 +56,19 @@ export class DetailbookComponent implements OnInit {//VAR
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
     this._detailService.post(this.seeBook).subscribe(
-      res => { Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) },
+      res => { 
+        Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) 
+        location.reload()
+
+      },
       error => console.log(error)
     )
-  }//IDETAIL//////////////////////////////////////////
+  }
+  details(seeBook:number){
+    //traer el inner de 
+  }
+  //IDETAIL//////////////////////////////////////////
+  
   //METODS//////////////////////////////////////////
 }
 

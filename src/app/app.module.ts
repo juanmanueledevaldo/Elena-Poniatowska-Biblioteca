@@ -53,7 +53,7 @@ import { BooksPipe } from './Pipe/books.pipe';
 import { UsersPipe } from './Pipe/users.pipe';
 import { LoansPipe } from './Pipe/loans.pipe'
 import {LoginService} from './Service/login.service';
-import { ExcelComponent } from './Components/excel/excel.component';
+
 
 
 //SERVICE//////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@ import { ExcelComponent } from './Components/excel/excel.component';
     LoansPipe,
     PdfstudentsComponent,
     AddEditBookComponent,
-    ExcelComponent
+    
     
   ],
   schemas: [

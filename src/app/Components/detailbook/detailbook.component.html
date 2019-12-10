@@ -30,20 +30,19 @@
                     <p>
                         <p>
                             <b>En existencia</b> {{book.stock}} ejemplares </p>
-                        <p>
-                            <a class="btn btn-warning btn-block" *ngIf="_service.loggedIn()" (click)="add()">
-                                <b>Solicitar Libro</b>
-                            </a>
-                        </p>
+
                 </div>
             </div>
         </div>
-
         <div class="col-md-6">
-
             <div class="product-block">
                 <img src="{{book.imagen}}">
             </div>
+            <p>
+                <a class="btn btn-warning btn-block" *ngIf="_service.loggedIn()" (click)="add()">
+                    <b>Solicitar Libro</b>
+                </a>
+            </p>
         </div>
 
         <hr>
