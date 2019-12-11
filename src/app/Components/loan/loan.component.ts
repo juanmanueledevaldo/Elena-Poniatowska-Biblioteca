@@ -22,18 +22,20 @@ export class LoanComponent implements OnInit {//VAR
 
   @Input('data') LoanFormm: FormGroup;
   @Output() OnSaveLoan = new EventEmitter<ILoan>()
-  loan: ILoan = { 
-    id: 0, 
-    folio: "", 
-    detalle: null, 
-    devolucion: "", 
-    estado: "", 
-    fecha: "", 
-    usuario: null, 
-    usuarioi: 0 }
+  loan: ILoan = {
+    id: 0,
+    folio: "",
+    detalle: null,
+    devolucion: "",
+    estado: "",
+    fecha: "",
+    usuario: null,
+    usuarioi: 0
+  }
+  details: Array<IDetail> = []
   LoanForm: FormGroup
   seeLoan: any
-  seeDetail:any
+  seeDetail: any
   public detailList: IDetail[] = []
   //VAR//////////////////////////////////////////
   constructor(//LOADPAGE
@@ -65,7 +67,7 @@ export class LoanComponent implements OnInit {//VAR
           )
         }
         else
-          Swal.fire({ title: "Error con algo" })
+          Swal.fire({ title: "Crear un prestamo" })
       },
       error => console.log(error)
     )//subscribeParams
@@ -75,7 +77,7 @@ export class LoanComponent implements OnInit {//VAR
       details => {
         this.detailList = details
         console.log(details);
-        
+
       },
       error => {
         console.log(error.error.message)
@@ -95,6 +97,7 @@ export class LoanComponent implements OnInit {//VAR
   }
   onResetForm() {
     this.LoanForm.reset()
+    
   }
   onSaveForm() {
     if (this.LoanForm.valid) {
@@ -103,6 +106,7 @@ export class LoanComponent implements OnInit {//VAR
       this.loan.devolucion = this.LoanForm.get("Devolucion").value
       this.loan.estado = this.LoanForm.get("Estado").value
       this.loan.usuarioi = 1
+      this.loan.detalle = this.detailList;
 
       if (this.loan.id != null && this.loan.id != 0) {
         this._loanService.update(this.loan).subscribe(
@@ -154,26 +158,36 @@ export class LoanComponent implements OnInit {//VAR
       }
       this.onResetForm()
     }
-    else{
+    else {
       Swal.fire(
         {
-          title :"Quepedo"
+          title: "Quepedo"
         }
       )
     }
   }//ILOAN///LOANFORM//////////////////////////////////////////
-  deleteItem(id:any) {
-    this._detailService.delete(id).subscribe(
-      data => {
-        location.reload()
-        Swal.fire(
-          {
-            title: "Eliminado",
-            text: "Holap"
-          }
-        )
-      }
-    )
+  deleteItem(id: any) {
+    if (this.details.length != 0) {
+      this._detailService.delete(id).subscribe(
+        data => {
+          location.reload()
+          Swal.fire(
+            {
+              title: "Eliminado",
+              text: "Holap"
+            }
+          )
+        }
+      )
+      
+    }
+
+  }
+  add(item: any) {
+    
+    this.details.push(item);
+    console.log(this.details);
+    
   }
   get folio() { return this.LoanForm.get("Folio") }
   get estado() { return this.LoanForm.get("Estado") }
