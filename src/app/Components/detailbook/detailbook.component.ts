@@ -11,6 +11,8 @@ import { IDetail } from 'src/app/Model/detail'
 import { BookService } from 'src/app/Service/book.service'
 import { DetailService } from 'src/app/Service/detail.service'
 import { LoginService } from '../../Service/login.service';
+import { UserService } from '../../Service/user.service';
+import { IUser } from '../../Model/user';
 ///SERVICE////////////////////////////////////////////////
 
 @Component({
@@ -24,13 +26,17 @@ export class DetailbookComponent implements OnInit {//VAR
   detail: IDetail
   seeBook: any;
   seeDetail:any
+  id:any;
+  user: IUser;
 
   ///VAR////////////////////////////////////////////////////////
   constructor(//LOADPAGE
     private _detailService: DetailService,
     private _bookService: BookService,
     private route: ActivatedRoute,
-    private _service: LoginService
+    private _service: LoginService,
+    private __userService:UserService
+  
   ) { }
   ngOnInit() {
     this.get()
@@ -55,14 +61,29 @@ export class DetailbookComponent implements OnInit {//VAR
     )
   }//IBOOK//////////////////////////////////////////
   add() {//IDETAIL
-    this._detailService.post(this.seeBook).subscribe(
-      res => { 
-        Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) 
-        location.reload()
-
-      },
-      error => console.log(error)
-    )
+    debugger
+    this._service.getProfile().subscribe(data=>{
+      this.id = data;
+      this.__userService.get(this.id).subscribe(
+        x => {
+          this.user = x
+          this.user.id;
+        debugger;
+        this._detailService.post(this.seeBook).subscribe(
+          
+          res => { 
+           
+            Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) 
+            location.reload()
+    
+          },
+          error => console.log(error)
+        )
+         })
+      
+         
+      });
+    
   }
   details(seeBook:number){
     //traer el inner de 

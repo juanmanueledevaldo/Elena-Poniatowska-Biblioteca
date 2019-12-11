@@ -28,12 +28,16 @@ export class ProfileComponent implements OnInit {
     
   }
 	GetUser(){
+<<<<<<< HEAD
+=======
+  
+>>>>>>> develop
     this.login.getProfile().subscribe(data=>{
     this.id = data;
     this._userService.get(this.id).subscribe(
       x => {
         this.user = x
-        this.details(this.id);
+      
   
        })
     });
@@ -42,6 +46,7 @@ export class ProfileComponent implements OnInit {
 		
 		
   }
+<<<<<<< HEAD
   details(id:number){
     //traer el inner de 
   }
@@ -52,5 +57,7 @@ export class ProfileComponent implements OnInit {
       getLoan => {this.loan = getLoan}
     )
   }
+=======
+>>>>>>> develop
 
 }
