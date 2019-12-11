@@ -5,6 +5,7 @@ import { LoginService } from 'src/app/Service/login.service';
 import { Observable } from 'rxjs';
 import { ExcelService } from 'src/app/Service/excel.service';
 import { AuthAdmin } from '../auth/authadmin.guard';
+import { Authstudent } from '../auth/authstudent.guard';
 
 //COMPONENT/////////////////////////////////////////
 //INTERFACE
@@ -19,7 +20,7 @@ import { AuthAdmin } from '../auth/authadmin.guard';
 })
 export class NavBarComponent implements OnInit {//VAR
   navbarOpen = false;
-  
+  role:string;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;

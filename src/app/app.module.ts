@@ -42,6 +42,8 @@ import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.compo
 import { AuthGuard } from './Components/auth/auth.guard';
 import { AddEditBookComponent } from './Components/add-edit-book/add-edit-book.component';
 import {AuthAdmin} from './Components/auth/authadmin.guard';
+import { ProfileComponent } from './Components/profile/profile.component';
+import {Authstudent} from './Components/auth/authstudent.guard';
 //COMPONENT//////////////////////////////////////////////////////////////////////////////////
 //SERVICE
 import { BookService } from './Service/book.service'
@@ -79,6 +81,7 @@ import {LoginService} from './Service/login.service';
     LoansPipe,
     PdfstudentsComponent,
     AddEditBookComponent,
+    ProfileComponent,
     
     
   ],
@@ -106,6 +109,7 @@ import {LoginService} from './Service/login.service';
     UserService,
     AuthGuard,
     AuthAdmin,
+    Authstudent,
     LoanService,
     LoginService,{
       provide: HTTP_INTERCEPTORS,
