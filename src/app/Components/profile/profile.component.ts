@@ -24,13 +24,13 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 	GetUser(){
-    debugger
+  
     this.login.getProfile().subscribe(data=>{
     this.id = data;
     this._userService.get(this.id).subscribe(
       x => {
         this.user = x
-        this.details(this.id);
+      
   
        })
     });
@@ -38,7 +38,5 @@ export class ProfileComponent implements OnInit {
 		
 		
   }
-  details(id:number){
-    //traer el inner de 
-  }
+
 }

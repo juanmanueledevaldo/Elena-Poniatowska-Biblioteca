@@ -8,6 +8,7 @@ import Swal from "sweetalert2"
 import { IUser } from 'src/app/Model/user'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 //INTERFACE//////////////////////////////////////////////////////
 
 //SERVICE
@@ -31,6 +32,7 @@ export class AddEditUserComponent implements OnInit {//VAR
     private _userService: UserService, private route: ActivatedRoute
   ) { }
   ngOnInit() {
+  
     this.gets()
   }//lOADPAGE//////////////////////////////////////////////////////
   gets()//METDS///IUSER[]
