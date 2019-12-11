@@ -41,7 +41,7 @@ export class BookService {//VAR
   {
     let requestUrl = `${this._apiUrl}/${id}`
     return this.http.get<IBook>(requestUrl).pipe(
-
+      
     )
   }
   post(book:IBook)

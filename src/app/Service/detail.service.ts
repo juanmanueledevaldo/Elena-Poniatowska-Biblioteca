@@ -49,7 +49,7 @@ export class DetailService {//VAR
       retry(1)
     );
   }
-  delete(id:number){
+  delete(id:any){
     let requestUrl =`${this._apiUrl}/${id}`
     return this.http.delete(requestUrl).pipe(
       catchError(this.handleError)

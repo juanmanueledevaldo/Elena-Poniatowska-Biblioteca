@@ -10,7 +10,7 @@ import { LoginComponent } from './Components/login/login.component'
 import { DetailbookComponent } from './Components/detailbook/detailbook.component'
 import { AddEditUserComponent } from './Components/add-edit-user/add-edit-user.component'
 import { PdfstudentsComponent } from './Components/pdfstudents/pdfstudents.component'
-import { ExcelComponent } from './Components/excel/excel.component'
+
 
 //COMPONENT/////////////////////////////////////////////////////////
 //MODULE
@@ -40,7 +40,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent  },
   { path: 'pdfstudents', component: PdfstudentsComponent, canActivate:[AuthGuard, AuthAdmin]},
   {path: 'books', component: AddEditBookComponent,  canActivate:[AuthAdmin, AuthGuard]},
-  {path: 'reportes', component: ExcelComponent, canActivate:[AuthAdmin, AuthGuard]},
   { path: '**', component: ErrorComponent },
   
 ]

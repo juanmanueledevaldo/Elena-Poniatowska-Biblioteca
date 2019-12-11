@@ -33,6 +33,7 @@ export class LoanComponent implements OnInit {//VAR
     usuarioi: 0 }
   LoanForm: FormGroup
   seeLoan: any
+  seeDetail:any
   public detailList: IDetail[] = []
   //VAR//////////////////////////////////////////
   constructor(//LOADPAGE
@@ -73,6 +74,8 @@ export class LoanComponent implements OnInit {//VAR
     this._detailService.getAll().subscribe(
       details => {
         this.detailList = details
+        console.log(details);
+        
       },
       error => {
         console.log(error.error.message)
@@ -159,7 +162,7 @@ export class LoanComponent implements OnInit {//VAR
       )
     }
   }//ILOAN///LOANFORM//////////////////////////////////////////
-  deleteItem(id: any) {
+  deleteItem(id:any) {
     this._detailService.delete(id).subscribe(
       data => {
         location.reload()

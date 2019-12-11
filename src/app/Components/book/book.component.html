@@ -135,14 +135,6 @@
       <!-- Imagen y Borrado -->
       <br />
       <hr>
-      <!-- <label>Imagen</label>
-      <input type="file" #image="ngModel" name="image" [(ngModel)]="book.image" class="form-control" />
-
-      <label>Nombre
-        <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
-      </label>
-      <input type="text" #nombre="ngModel" name="name" [(ngModel)]="nombre.nombre" class="form-control"
-        placeholder="Ingresa el nombre" required /> -->
       <button type="submit" [disabled]="!FormBook.form.valid" class="btn btn-primary">Guardar Libro</button>
     </form>
   </article>

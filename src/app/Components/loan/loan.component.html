@@ -36,25 +36,18 @@
       </form>
     </div>
     <div class="col-md-6">
-        <ul>
-            <li >
-              <a href="">{{item.id}} - {{item.nombre}}</a>
-            </li>
-          </ul>
-          <div >
+          
 
-            <div class="text-center border border-light p-5">
+            <div class="text-center border border-light p-3">
               <div *ngFor="let item of detailList">
                 <img src="{{item.imagen}}" alt="" srcset="">
-                <h5 class="card-title">{{item.nombre}}a</h5>
-                <p class="card-text">{{item.estante}}</p>
-                <p class="card-text">{{item.stock}}</p>
-                
+                <h5 class="card-title">Nombre: {{item.nombre}}a</h5>
+                <p class="card-text"> Estante: {{item.estante}}</p>
+                <p class="card-text">Stock: {{item.stock}}</p>                
                 <a class="btn btn-danger" (click)="deleteItem(item.id)">Borrar</a>
-
-                <a id="boton" class="btn btn-outline-primary" (click)="add()">Compralo we</a>
+                <a id="boton" class="btn btn-outline-primary" (click)="add(item.detalle)">Añadir a Prestamo</a>
               </div>
-            </div>
+            
             
             
             </div>
