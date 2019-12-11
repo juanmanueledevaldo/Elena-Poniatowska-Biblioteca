@@ -27,7 +27,7 @@
             </li>
        
         <li class="nav-item">
-          <a class="nav-link" [routerLinkActive]="['activate']" routerLink="/user">Registrate</a>
+          <a class="nav-link" *ngIf="!_service.loggedIn()" [routerLinkActive]="['activate']" routerLink="/user">Registrate</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" *ngIf="_service.loggedIn() && _service.isAdmin()" [routerLinkActive]="['activate']" routerLinkActivate="active" routerLink="/book">Registrar Libro</a>
@@ -56,11 +56,15 @@
                 <li class="nav-item">
                     <a class="nav-link" *ngIf="!_service.loggedIn()" [routerLinkActive]="['activate']"  routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
                   </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" *ngIf="_service.loggedIn()" [routerLinkActive]="['activate']"  routerLink="/profile" LinkActive="active">Perfil</a>
+                  </li>
       </ul>
     
        
         <button *ngIf="_service.loggedIn()"  class="btn btn-danger my-2 my-sm-0" (click)="_service.logoutUser()">Cerrar Sesion</button>
-      
+       
        </div>
   </nav>
  

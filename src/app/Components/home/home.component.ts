@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     config.pauseOnHover = true; 
   }  
   ngOnInit() {
+    
     this._bookService.toast();
     // this._loginService.getUserProfile().subscribe(
     //   res => {

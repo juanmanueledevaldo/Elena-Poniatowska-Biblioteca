@@ -20,6 +20,7 @@ import { AddEditLoanComponent } from './Components/add-edit-loan/add-edit-loan.c
 import { AuthGuard } from './Components/auth/auth.guard';
 import {AuthAdmin} from './Components/auth/authadmin.guard';
 import { AddEditBookComponent } from './Components/add-edit-book/add-edit-book.component'
+import { ProfileComponent } from './Components/profile/profile.component'
 //MODULE/////////////////////////////////////////////////////////
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent  },
   { path: 'pdfstudents', component: PdfstudentsComponent, canActivate:[AuthGuard, AuthAdmin]},
   {path: 'books', component: AddEditBookComponent,  canActivate:[AuthAdmin, AuthGuard]},
+  {path: 'profile', component:ProfileComponent, canActivate:[AuthGuard]},
   { path: '**', component: ErrorComponent },
   
 ]

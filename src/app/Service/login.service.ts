@@ -14,6 +14,7 @@ export class LoginService {
   
   constructor(private fb: FormBuilder, private http: HttpClient, private _router: Router) { }
   readonly BaseURI = 'https://localhost:44375/api/login';
+  private _apiUrl2:string = "https://localhost:44375/api/login/GetUser"
 
   login(login:ILogin) {
     return this.http.post(this.BaseURI , login);
@@ -34,6 +35,10 @@ export class LoginService {
     this._router.navigate(['/login'])
   }
 
+  getProfile(){
+  
+    return this.http.get(this._apiUrl2)
+  }
   getToken() {
     return localStorage.getItem('token')
   }
