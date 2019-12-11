@@ -12,7 +12,6 @@ import { IDetail } from 'src/app/Model/detail'
 //SERVICE
 import { BookService } from 'src/app/Service/book.service'
 import { DetailService } from 'src/app/Service/detail.service'
-import { Toast } from 'ngx-toastr'
 //SERVICE//////////////////////////////////////////////////
 
 @Component({
@@ -30,8 +29,7 @@ export class BookComponent implements OnInit {//VAR
 
     private _detailService: DetailService,
     private _bookService: BookService,
-    private route: ActivatedRoute,
-    private toast: Toast
+    private route: ActivatedRoute
   ) { }
   ngOnInit() {
     this.get()
@@ -71,7 +69,7 @@ export class BookComponent implements OnInit {//VAR
       this.book.paginas = this.BookForm.get("Paginas").value
       this.book.descripcion = this.BookForm.get("Descripcion").value
       this.book.stock = this.BookForm.get("Stock").value
-      this.book.imagen = "../../../assets/Images/2827_1_books_01831_lacabana.jpg"
+      this.book.imagen = "../../../assets/Images/book.png"
       this.book.borrado = false
 
       if (this.book.id != null && this.book.id != 0) {

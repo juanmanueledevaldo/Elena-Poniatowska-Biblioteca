@@ -12,7 +12,6 @@ export class Authstudent implements CanActivate {
   constructor(private router: Router, private _service: LoginService) {
   }
   canActivate(): boolean {
-      debugger;
     this._service.isAdmin().subscribe(data=>{
       debugger;
         this.role = data.toString();

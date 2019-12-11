@@ -3,7 +3,8 @@ import { UserService } from 'src/app/Service/user.service';
 import { FormGroup } from '@angular/forms';
 import { IUser } from 'src/app/Model/user';
 import { LoginService } from 'src/app/Service/login.service';
-
+import { LoanService } from 'src/app/Service/loan.service'
+import { ILoan } from 'src/app/Model/loan';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,15 +17,17 @@ export class ProfileComponent implements OnInit {
 
   user: IUser
   id:any
-  constructor(private _userService: UserService, private login: LoginService) { 
+  loan: ILoan;
+  public loans: ILoan[] = []
+  constructor(private _userService: UserService, private login: LoginService, private _loanService: LoanService) { 
 		this.GetUser();
 
 	}
 
   ngOnInit() {
+    
   }
 	GetUser(){
-    debugger
     this.login.getProfile().subscribe(data=>{
     this.id = data;
     this._userService.get(this.id).subscribe(
@@ -35,10 +38,19 @@ export class ProfileComponent implements OnInit {
        })
     });
 
+    
 		
 		
   }
   details(id:number){
     //traer el inner de 
   }
+
+  get(id: any)//ILOAN
+  {
+    this._loanService.getFolio(id).subscribe(
+      getLoan => {this.loan = getLoan}
+    )
+  }
+
 }
