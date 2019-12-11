@@ -129,7 +129,7 @@ export class UserComponent implements OnInit {//VAR
         this.user.contrasenia =  this.UserForm.get("Contraseña").value
         this.user.cuatrimestre =  this.UserForm.get("Cuatrimestre").value
         this.user.tipo = "Estudiante"
-        this.user.grupo =this.UserForm.get("Grupo").value
+        this.user.grupo = "1"
         this.user.borrado = false
         this.user.activo = true        
         if (this.user.id != null && this.user.id!=0) {
