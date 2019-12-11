@@ -106,7 +106,7 @@ export class LoanComponent implements OnInit {//VAR
       this.loan.devolucion = this.LoanForm.get("Devolucion").value
       this.loan.estado = this.LoanForm.get("Estado").value
       this.loan.usuarioi = 1
-      this.loan.detalle = this.detailList;
+      this.loan.detalle = this.details;
 
       if (this.loan.id != null && this.loan.id != 0) {
         this._loanService.update(this.loan).subscribe(
