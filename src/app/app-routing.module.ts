@@ -26,7 +26,7 @@ import { ProfileComponent } from './Components/profile/profile.component'
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate:[AuthAdmin] },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'loans', component: AddEditLoanComponent, canActivate:[AuthAdmin, AuthGuard] },
   { path: 'cards', component: CardsComponent },

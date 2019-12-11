@@ -13,18 +13,15 @@
             <div  class="col-md-6">
                 <div class="profile-head"  >
                             <h5>
-                               {{user.nombre}}
+                            Bienvenido a EPBiblioteca {{user.nombre}} {{user.apellido}}
                             </h5>
-                            <h6>
-                                Web Developer and Designer
-                            </h6>
-                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                        
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Info</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Libros solicitados</a>
                         </li>
                     </ul>
                 </div>
@@ -53,10 +50,10 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>User Id</label>
+                                        <label>Usuario</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Kshiti123</p>
+                                        <p>{{user.mote}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
