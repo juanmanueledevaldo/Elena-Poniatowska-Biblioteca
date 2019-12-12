@@ -50,6 +50,9 @@ private _apiUrl ="https://localhost:44375/api/prestamo"
       catchError(this.handleError)
     )
   }
+
+  
+
   update(loan:ILoan)
   {
     let requestUrl =`${this._apiUrl}/${loan.id}`

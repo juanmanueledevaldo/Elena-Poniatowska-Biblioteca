@@ -39,7 +39,7 @@
 
 
 
-                        <th>Nombre</th>
+                        
                         <th>Email</th>
                         <th>Numero</th>
                         <th>Folio</th>
@@ -51,7 +51,6 @@
                 
                 
                     <tr *ngFor="let item of loans| loans:filterLoans; ">
-                        <td>{{item.id}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.telefono}}</td>
                         <td>{{item.folio}}</td>
