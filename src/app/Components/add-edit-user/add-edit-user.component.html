@@ -47,7 +47,7 @@
                         <td>{{item.cuatrimestre}}</td>
                         <td>{{item.carrera}}</td>
                         <td>{{item.tipo}}</td>
-                        <td>{{item.activo}}</td>
+                        <td>{{item.activo ? "Activo" : "Inactivo"}}</td>
                         <td>
                             <!-- href="#editEmployeeModal" -->
                             <a [routerLink]="['/user/',item.id]" class="edit" data-toggle="modal"><i class="far fa-edit"

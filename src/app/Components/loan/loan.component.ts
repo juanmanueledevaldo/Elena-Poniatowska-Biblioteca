@@ -134,6 +134,8 @@ export class LoanComponent implements OnInit {//VAR
 
         this._loanService.postLoan(this.loan).subscribe(
           data => {
+            this.get();
+            this.getDetails();
             Swal.fire(
               {
                 title: "Creado",
@@ -183,8 +185,8 @@ export class LoanComponent implements OnInit {//VAR
     }
 
   }
-  add(item: any) {
-    
+  add(item: any,i:number) {
+    this.detailList.splice(i,1)
     this.details.push(item);
     console.log(this.details);
     

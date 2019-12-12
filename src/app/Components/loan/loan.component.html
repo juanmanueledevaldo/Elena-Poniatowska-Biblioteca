@@ -37,13 +37,13 @@
     </div>
     <div class="col-md-6">
             <div class="text-center border border-light p-3">
-              <div *ngFor="let item of detailList">
+              <div *ngFor="let item of detailList;let i = index">
                 <img src="{{item.imagen}}" alt="" srcset="">
                 <h5 class="card-title">Nombre: {{item.nombre}}a</h5>
                 <p class="card-text"> Estante: {{item.estante}}</p>
                 <p class="card-text">Stock: {{item.stock}}</p>                
                 <a class="btn btn-danger" (click)="deleteItem(item.id)">Borrar</a>
-                <a id="boton" class="btn btn-outline-primary" (click)="add(item)">Añadir a Prestamo</a>
+                <a id="boton" class="btn btn-outline-primary" (click)="add(item,i)">Añadir a Prestamo</a>
               </div>
             </div>
     </div>

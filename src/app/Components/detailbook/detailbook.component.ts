@@ -70,12 +70,9 @@ export class DetailbookComponent implements OnInit {//VAR
           this.user.id;
         debugger;
         this._detailService.post(this.seeBook).subscribe(
-          
           res => { 
-           
             Swal.fire({ title: "Se ha hecho un prestamo, puedes ir a la biblioteca a solicitar tu libro", icon: 'success' , showConfirmButton: true, timer: 4200, }) 
             location.reload()
-    
           },
           error => console.log(error)
         )
